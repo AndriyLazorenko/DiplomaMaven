@@ -1,0 +1,69 @@
+Total number of AA phrases After
+Total number of AC phrases After
+Total number of AG phrases After
+Total number of AT phrases After
+Total number of CA phrases After
+Total number of CC phrases After
+Total number of CG phrases After
+Total number of CT phrases After
+Total number of GA phrases After
+Total number of GC phrases After
+Total number of GG phrases After
+Total number of GT phrases After
+Total number of TA phrases After
+Total number of TC phrases After
+Total number of TG phrases After
+Total number of TT phrases After
+Frequency of AA phrase total occurrence After
+Frequency of AC phrase total occurrence After
+Frequency of AG phrase total occurrence After
+Frequency of AT phrase total occurrence After
+Frequency of CA phrase total occurrence After
+Frequency of CC phrase total occurrence After
+Frequency of CG phrase total occurrence After
+Frequency of CT phrase total occurrence After
+Frequency of GA phrase total occurrence After
+Frequency of GC phrase total occurrence After
+Frequency of GG phrase total occurrence After
+Frequency of GT phrase total occurrence After
+Frequency of TA phrase total occurrence After
+Frequency of TC phrase total occurrence After
+Frequency of TG phrase total occurrence After
+Frequency of TT phrase total occurrence After
+Total TT,TA,CT,CA After
+Frequency of TT,TA,CT,CA After
+Total number of AA phrases before
+Total number of AC phrases before
+Total number of AG phrases before
+Total number of AT phrases before
+Total number of CA phrases before
+Total number of CC phrases before
+Total number of CG phrases before
+Total number of CT phrases before
+Total number of GA phrases before
+Total number of GC phrases before
+Total number of GG phrases before
+Total number of GT phrases before
+Total number of TA phrases before
+Total number of TC phrases before
+Total number of TG phrases before
+Total number of TT phrases before
+Frequency of AA phrase total occurrence before
+Frequency of AC phrase total occurrence before
+Frequency of AG phrase total occurrence before
+Frequency of AT phrase total occurrence before
+Frequency of CA phrase total occurrence before
+Frequency of CC phrase total occurrence before
+Frequency of CG phrase total occurrence before
+Frequency of CT phrase total occurrence before
+Frequency of GA phrase total occurrence before
+Frequency of GC phrase total occurrence before
+Frequency of GG phrase total occurrence before
+Frequency of GT phrase total occurrence before
+Frequency of TA phrase total occurrence before
+Frequency of TC phrase total occurrence before
+Frequency of TG phrase total occurrence before
+Frequency of TT phrase total occurrence before
+Total AA,AG,TA,TG before
+Frequency of AA,AG,TA,TG before
+Total strings of genetic code analysed

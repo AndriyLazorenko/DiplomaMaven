@@ -1,0 +1,6 @@
+        R=A/G
+        Y=C/T
+        K=G/T
+        M=A/C
+        W=A/T
+        S=C/G

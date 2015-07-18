@@ -1,0 +1,35 @@
+Total number of AA phrases After
+Total number of AC phrases After
+Total number of AG phrases After
+Total number of AT phrases After
+Total number of CA phrases After
+Total number of CC phrases After
+Total number of CG phrases After
+Total number of CT phrases After
+Total number of GA phrases After
+Total number of GC phrases After
+Total number of GG phrases After
+Total number of GT phrases After
+Total number of TA phrases After
+Total number of TC phrases After
+Total number of TG phrases After
+Total number of TT phrases After
+Frequency of AA phrase total occurrence After
+Frequency of AC phrase total occurrence After
+Frequency of AG phrase total occurrence After
+Frequency of AT phrase total occurrence After
+Frequency of CA phrase total occurrence After
+Frequency of CC phrase total occurrence After
+Frequency of CG phrase total occurrence After
+Frequency of CT phrase total occurrence After
+Frequency of GA phrase total occurrence After
+Frequency of GC phrase total occurrence After
+Frequency of GG phrase total occurrence After
+Frequency of GT phrase total occurrence After
+Frequency of TA phrase total occurrence After
+Frequency of TC phrase total occurrence After
+Frequency of TG phrase total occurrence After
+Frequency of TT phrase total occurrence After
+Total TT,TA,CT,CA After
+Frequency of TT,TA,CT,CA After
+Total strings of genetic code analysed

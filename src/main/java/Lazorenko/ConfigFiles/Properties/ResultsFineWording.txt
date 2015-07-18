@@ -1,0 +1,84 @@
+        AA_After=Total number of AA phrases After
+        AC_After=Total number of AC phrases After
+        AG_After=Total number of AG phrases After
+        AT_After=Total number of AT phrases After
+        CA_After=Total number of CA phrases After
+        CC_After=Total number of CC phrases After
+        CG_After=Total number of CG phrases After
+        CT_After=Total number of CT phrases After
+        GA_After=Total number of GA phrases After
+        GC_After=Total number of GC phrases After
+        GG_After=Total number of GG phrases After
+        GT_After=Total number of GT phrases After
+        TA_After=Total number of TA phrases After
+        TC_After=Total number of TC phrases After
+        TG_After=Total number of TG phrases After
+        TT_After=Total number of TT phrases After
+
+
+        AA_freq_After=Frequency of AA phrase total occurrence After
+        AC_freq_After=Frequency of AC phrase total occurrence After
+        AG_freq_After=Frequency of AG phrase total occurrence After
+        AT_freq_After=Frequency of AT phrase total occurrence After
+        CA_freq_After=Frequency of CA phrase total occurrence After
+        CC_freq_After=Frequency of CC phrase total occurrence After
+        CG_freq_After=Frequency of CG phrase total occurrence After
+        CT_freq_After=Frequency of CT phrase total occurrence After
+        GA_freq_After=Frequency of GA phrase total occurrence After
+        GC_freq_After=Frequency of GC phrase total occurrence After
+        GG_freq_After=Frequency of GG phrase total occurrence After
+        GT_freq_After=Frequency of GT phrase total occurrence After
+        TA_freq_After=Frequency of TA phrase total occurrence After
+        TC_freq_After=Frequency of TC phrase total occurrence After
+        TG_freq_After=Frequency of TG phrase total occurrence After
+        TT_freq_After=Frequency of TT phrase total occurrence After
+
+        TT,TA,CT,CA_After=Total TT,TA,CT,CA After
+        Freq_TT,TA,CT,CA_After=Frequency of TT,TA,CT,CA After
+
+        AA_before=Total number of AA phrases before
+        AC_before=Total number of AC phrases before
+        AG_before=Total number of AG phrases before
+        AT_before=Total number of AT phrases before
+        CA_before=Total number of CA phrases before
+        CC_before=Total number of CC phrases before
+        CG_before=Total number of CG phrases before
+        CT_before=Total number of CT phrases before
+        GA_before=Total number of GA phrases before
+        GC_before=Total number of GC phrases before
+        GG_before=Total number of GG phrases before
+        GT_before=Total number of GT phrases before
+        TA_before=Total number of TA phrases before
+        TC_before=Total number of TC phrases before
+        TG_before=Total number of TG phrases before
+        TT_before=Total number of TT phrases before
+
+        AA_freq_before=Frequency of AA phrase total occurrence before
+        AC_freq_before=Frequency of AC phrase total occurrence before
+        AG_freq_before=Frequency of AG phrase total occurrence before
+        AT_freq_before=Frequency of AT phrase total occurrence before
+        CA_freq_before=Frequency of CA phrase total occurrence before
+        CC_freq_before=Frequency of CC phrase total occurrence before
+        CG_freq_before=Frequency of CG phrase total occurrence before
+        CT_freq_before=Frequency of CT phrase total occurrence before
+        GA_freq_before=Frequency of GA phrase total occurrence before
+        GC_freq_before=Frequency of GC phrase total occurrence before
+        GG_freq_before=Frequency of GG phrase total occurrence before
+        GT_freq_before=Frequency of GT phrase total occurrence before
+        TA_freq_before=Frequency of TA phrase total occurrence before
+        TC_freq_before=Frequency of TC phrase total occurrence before
+        TG_freq_before=Frequency of TG phrase total occurrence before
+        TT_freq_before=Frequency of TT phrase total occurrence before
+
+        AA,AG,TA,TG_before=Total AA,AG,TA,TG before
+        Freq_AA,AG,TA,TG_before=Frequency of AA,AG,TA,TG before
+        
+        Total=Total strings of genetic code analysed
+
+        Sum_After= Sum of all phrases after
+        Sum_Before= Sum of all phrases before
+
+        Diff_After=Difference between total number of SNP's and sum of all non - double SNP's counted after SNP
+        Diff_Before=Difference between total number of SNP's and sum of all non - double SNP's counted before SNP
+        Diff_After_Freq=Frequency of occurrence of double SNP's after SNP
+        Diff_Before_Freq=Frequency of occurrence of double SNP's before SNP
