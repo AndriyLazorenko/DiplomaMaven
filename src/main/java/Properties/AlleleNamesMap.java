@@ -14,7 +14,7 @@ public class AlleleNamesMap {
 
     public AlleleNamesMap() {
         try {
-            FileReader fr = new FileReader("src/ConfigFiles/Properties.Properties/AlleleNames.txt");
+            FileReader fr = new FileReader("src/main/resources/ConfigFiles/Properties/AlleleNames.txt");
             properties.load(fr);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

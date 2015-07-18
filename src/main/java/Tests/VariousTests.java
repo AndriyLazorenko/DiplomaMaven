@@ -2,8 +2,6 @@ package Tests;
 
 
 import Properties.AlleleNamesMap;
-import Properties.Properties.*;
-
 /**
  * Created by Master on 27-Apr-15.
  */

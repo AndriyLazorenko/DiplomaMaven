@@ -14,7 +14,7 @@ public class AlleleReverseNamesMap {
 
     public AlleleReverseNamesMap() {
         try {
-            FileReader fr = new FileReader("src/ConfigFiles/Properties.Properties/AlleleReverseNames.txt");
+            FileReader fr = new FileReader("src/main/resources/ConfigFiles/Properties/AlleleReverseNames.txt");
             properties.load(fr);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
