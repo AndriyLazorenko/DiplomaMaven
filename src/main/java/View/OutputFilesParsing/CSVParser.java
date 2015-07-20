@@ -1,6 +1,7 @@
 package View.OutputFilesParsing;
 
 
+import Controller.GenomeDinucleotideFreq.AllResultsContainer;
 import Properties.Results;
 
 import java.io.*;
@@ -9,18 +10,37 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * Created by Master on 25-May-15.
+ * Class is created for data output formatted in .csv excel-ready. Accepts Results class object
+ * and ready-for-CSV String object.
+ * @author andriylazorenko
  */
+
 public class CSVParser {
-    private FileReader fileReader;
+
+    /**
+     * Other variables
+     */
+
     private String[] forCSV;
     private Results results;
-    private Set<String> helper = new LinkedHashSet<>();
+    private AllResultsContainer adjustedFreq;
 
-    public CSVParser(Results res) {
+    /**
+     * Constructor of class. Receives Results object and produces forCSV array of Strings from
+     * template, accessed by hard-coded path
+     * @param res - Results object received
+     * @param adjustedFreq - statistical frequencies of occurrence of dinucleotides in studied data
+     * @returns forCSV - array of Strings used by @toCSV method
+     */
+
+    public CSVParser(Results res, AllResultsContainer adjustedFreq) {
+        FileReader fileReader;
+        Set<String> helper = new LinkedHashSet<>();
         this.results = res;
+        this.adjustedFreq = adjustedFreq;
         try {
-            fileReader = new FileReader("C:\\Users\\Lazorenko\\IdeaProjects\\Diploma\\src\\ConfigFiles\\ExcelFormatting\\Template.txt");
+            final String templatePath = "src/main/resources/ConfigFiles/ExcelFormatting/Template.txt";
+            fileReader = new FileReader(templatePath);
             BufferedReader br = new BufferedReader(fileReader);
             String line = br.readLine();
             int counter=0;
@@ -45,6 +65,12 @@ public class CSVParser {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Uses forCSV array of Strings created by constructor to produce a String of results
+     * ready to be written in a .CSV file
+     * @return String of results ready to be written in a .CSV file
+     */
 
     public String toCSV() {
 

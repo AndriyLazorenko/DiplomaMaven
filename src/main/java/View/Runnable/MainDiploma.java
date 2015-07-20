@@ -1,12 +1,12 @@
 package View.Runnable;
 
-import Controller.Service;
+import Controller.Controller;
 
 import java.io.IOException;
 
 public class MainDiploma {
     public static void main(String[] args) throws IOException {
-        Service inter = new Service();
+        Controller inter = new Controller();
         inter.consoleMenu();
     }
 }

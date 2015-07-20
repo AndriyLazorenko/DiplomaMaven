@@ -8,9 +8,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Created by Master on 28-Apr-15.
+ * Class that prepares all the necessary paths for using an entire folder as .txt file source folder
+ * (input source)
+ * @author andriylazorenko
  */
+
 public class FolderInput extends PathProcessing {
+
+    /**
+     * Method asks for correct folder location until it receives one.
+     * After some processing, it returns String path of folder
+     * @return String - folder path to input folder
+     * @throws IOException
+     */
 
     public String inputFolder() throws IOException {
         do {
@@ -39,6 +49,14 @@ public class FolderInput extends PathProcessing {
         return getAdjustedFileLocation();
     }
 
+    /**
+     * Method forms a map <String,FileReader> from the files contained in input location delivered
+     * to the method as a String object - folderLocation
+     * @param folderLocation - String pointing input folder location
+     * @returns map of type <String,FileReader> containing all the relevant fileNames with data
+     * and their respective FileReader objects
+     */
+
     public Map<String,FileReader> input(String folderLocation){
 
         //Determining size of array depending on number of files to process
@@ -56,6 +74,7 @@ public class FolderInput extends PathProcessing {
         FileReader[] frArray = new FileReader[counterOfTxtFiles];
 
         //Creating a map of file destinations (key) and file contents (value)
+        //TODO debug for use on UNIX systems
 
         int position=0;
         for (String s:namesOfFilesInFolder){

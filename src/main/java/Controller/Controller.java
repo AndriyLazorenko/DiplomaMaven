@@ -1,6 +1,7 @@
 package Controller;
 
 
+import Controller.GenomeDinucleotideFreq.AllResultsContainer;
 import Controller.InputProcessing.FileInput;
 import Controller.InputProcessing.FolderInput;
 import Controller.InputProcessing.AlleleValidation;
@@ -12,12 +13,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 
-public class Service {
+/**
+ * A giant super-duper-class, UBER - controller, who knows just about everyone and pulls all the
+ * stuff together. A clear anti-pattern applied here. Scheduled for massive refactoring and decoupling
+ * Functions as a console - user interface, controller logic to access all other classes.
+ * Contains internal classes: abstract class Processing, FolderProcessing and FileProcessing
+ * @author andriylazorenko
+ */
+
+public class Controller {
+
+    /**
+     * Variables
+     */
 
     private AlleleValidation av = new AlleleValidation();
     private FolderProcessing folderProcessing;
     private FileProcessing fileProcessing;
-
     private String allele;
     private FileReader fileReader;
     private String oldFileName;
@@ -31,6 +43,12 @@ public class Service {
     private String variationAllele;
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private AllResultsContainer adjustedFreq = new AllResultsContainer();
+
+    /**
+     * Main method. Does everything
+     * @throws IOException
+     */
 
     public void consoleMenu () throws IOException {
         while (carryOn) {
@@ -53,7 +71,7 @@ public class Service {
 
                 //Processing specific Allele depending on input
 
-                folderProcessing = new FolderProcessing(allele,folder);
+                folderProcessing = new FolderProcessing(allele,folder,adjustedFreq);
                 folderProcessing.setVariables();
                 folderProcessing.processingAllele();
             }
@@ -72,7 +90,7 @@ public class Service {
 
                 //Processing specific Allele depending on input
 
-                fileProcessing = new FileProcessing(allele);
+                fileProcessing = new FileProcessing(allele,adjustedFreq);
                 fileProcessing.setVariables();
                 fileProcessing.processingAllele();
 
@@ -91,14 +109,26 @@ public class Service {
         }
     }
 
+    /**
+     * The internal abstract class contains common methods and variables for both FileProcessing
+     * internal class and FolderProcessing internal class.
+     * @author andriylazorenko
+     */
 
     private abstract class Processing {
 
-        //setVariables method can be improved to include multiple alleles
+        /**
+         * Variables
+         */
 
         protected String allele;
-        private Allele chosenAllele;
-        private ResultsDB chosenResultsDB;
+        protected Allele chosenAllele;
+        protected ResultsDB chosenResultsDB;
+        protected AllResultsContainer adjustedFreq;
+
+        /**
+         * Getters and Setters
+         */
 
         public Allele getChosenAllele() {
             return chosenAllele;
@@ -116,45 +146,43 @@ public class Service {
             this.chosenResultsDB = chosenResultsDB;
         }
 
+        /**
+         * Method for creating chosenAllele object and chosenResults DB object
+         * @parameter allele - String value is required for correct work of method
+         * @parameter adjustedFreq - AllResultsContainer object is required for correct work of method
+         */
+
         protected void setVariables(){
-            if (allele.equals("R")){
+            if (allele.equals("R")||allele.equals("Y")||
+                    allele.equals("K")||allele.equals("M")||
+                    allele.equals("W")||allele.equals("S")){
                 setChosenAllele(new Allele(allele));
-                setChosenResultsDB(new ResultsDB(allele));
-            }
-            else if (allele.equals("Y")){
-                setChosenAllele(new Allele(allele));
-                setChosenResultsDB(new ResultsDB(allele));
-            }
-            else if (allele.equals("K")){
-                setChosenAllele(new Allele(allele));
-                setChosenResultsDB(new ResultsDB(allele));
-            }
-            else if (allele.equals("M")){
-                setChosenAllele(new Allele(allele));
-                setChosenResultsDB(new ResultsDB(allele));
-            }
-            else if (allele.equals("W")){
-                setChosenAllele(new Allele(allele));
-                setChosenResultsDB(new ResultsDB(allele));
-            }
-            else if (allele.equals("S")){
-                setChosenAllele(new Allele(allele));
-                setChosenResultsDB(new ResultsDB(allele));
+                setChosenResultsDB(new ResultsDB(allele,adjustedFreq));
             }
         }
+
+        /**
+         * Abstract method for processing a specific Allele
+         * @throws IOException
+         */
+
         protected abstract void processingAllele () throws IOException;
     }
 
+    /**
+     * A class for processing a folder as an input source. Contains controller logic as well as
+     * console user interface necessary for processing a folder
+     * @author andriylazorenko
+     */
 
     private class FolderProcessing extends Processing {
 
-        //setVariables method can be improved to include multiple alleles
-
         private FolderInput folder;
 
-        public FolderProcessing (String s, FolderInput f) {
+        public FolderProcessing (String s, FolderInput f, AllResultsContainer adjustedFreq) {
             this.allele = s;
             this.folder = f;
+            this.adjustedFreq= adjustedFreq;
         }
 
         protected void processingAllele ()throws IOException {
@@ -213,8 +241,9 @@ public class Service {
 
         //setVariables method can be improved to include multiple alleles
 
-        public FileProcessing (String s) {
+        public FileProcessing (String s, AllResultsContainer adjustedFreq) {
             this.allele = s;
+            this.adjustedFreq = adjustedFreq;
         }
 
         protected void processingAllele() throws IOException {

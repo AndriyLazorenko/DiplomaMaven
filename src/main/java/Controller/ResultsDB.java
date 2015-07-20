@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.DatabaseParsingBehaviour.ParsingDBBehaviour;
+import Controller.GenomeDinucleotideFreq.AllResultsContainer;
 import Properties.DatabaseBehaviourMap;
 import Properties.Results;
 import Properties.OrderedPrintList;
@@ -11,20 +12,40 @@ import java.util.Properties;
 
 
 /**
- * Created by Master on 04-May-15.
+ * The class provides various methods to work with Results
+ * @author andriylazorenko
  */
+
 public class ResultsDB {
+
+    /**
+     * Variables
+     */
 
     protected ParsingDBBehaviour parsingDBBehaviour;
     protected DatabaseBehaviourMap dbbm = new DatabaseBehaviourMap();
     private String variationAllele;
     private String fileName;
     private Results results;
+    private AllResultsContainer adjustedFreq;
 
-    public ResultsDB(String s){
+    /**
+     * Constructor accepts String of variation Allele, determines parsing behaviour of
+     * results depending on variation Allele and accepts statistically calculated frequencies
+     * of occurrence of dinucleotides in processed data.
+     * @param s - String of variation allele
+     * @param adjustedFreq - file containing data on frequencies of occurrence of dinucleotides
+     */
+
+    public ResultsDB(String s, AllResultsContainer adjustedFreq){
         this.parsingDBBehaviour = dbbm.getDatabaseBehaviour().get(s);
         this.variationAllele = s;
+        this.adjustedFreq = adjustedFreq;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public Results getResults() {
         return results;
@@ -42,19 +63,28 @@ public class ResultsDB {
         this.fileName = fileName;
     }
 
+    /**
+     * Method receives String with file path and modifies it for .CSV output
+     * @param fileName - received String with file path
+     * @throws IOException
+     */
+
     public void toFile(String fileName) throws IOException {
 
         setFileName(fileName);
         setFileName(getFileName().substring(0,getFileName().lastIndexOf("\\"))+"\\"+variationAllele+"_Results_Database.csv");
         File file = new File(getFileName());
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
-        CSVParser csv = new CSVParser(results);
+        CSVParser csv = new CSVParser(results,adjustedFreq);
         fw.write(csv.toCSV());
         fw.flush();
         fw.close();
     }
 
-    //Refactor erase method
+
+    /**
+     * Method for erasing all results. Might need a refactoring.
+     */
 
     public void erase() {
         System.out.println("Do you want to erase all results? Y/N");
@@ -71,6 +101,10 @@ public class ResultsDB {
         }
     }
 
+    /**
+     * Method for printing results to console
+     */
+
     public void print() {
         Properties forPrint = results.applyWording();
         OrderedPrintList opl = new OrderedPrintList(variationAllele);
@@ -78,6 +112,10 @@ public class ResultsDB {
             System.out.println(s + " = " + forPrint.get(s).toString() + " in Variation Allele " + results.getVariationAllele());
         }
     }
+
+    /**
+     * Method for setting Results object a null value
+     */
 
     public void clearResults(){
         setResults(null);

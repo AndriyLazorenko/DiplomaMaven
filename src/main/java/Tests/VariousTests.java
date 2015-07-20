@@ -2,6 +2,8 @@ package Tests;
 
 
 import Properties.AlleleNamesMap;
+import org.springframework.util.StringUtils;
+
 /**
  * Created by Master on 27-Apr-15.
  */
@@ -29,7 +31,11 @@ public class VariousTests {
 //            System.out.println("Start " + m.start());
 //            System.out.println("End " + m.end());
 //        }
-        AlleleNamesMap anm = new AlleleNamesMap();
-        System.out.println(anm.getAlleleNames().get("R").toString());
+
+//        AlleleNamesMap anm = new AlleleNamesMap();
+//        System.out.println(anm.getAlleleNames().get("R").toString());
+        String aa = "aa";
+        String s = "build150402-0955.1rs17571\t[homo sapiens]\taggccccgtctcaaagtactcccagg\tc/t\tggtgccagccgtgaccgaggggccc";
+        System.out.println(StringUtils.countOccurrencesOf(s,aa));
     }
 }

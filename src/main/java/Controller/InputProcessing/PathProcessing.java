@@ -3,9 +3,17 @@ package Controller.InputProcessing;
 import java.io.*;
 
 /**
- * Created by Master on 28-Apr-15.
+ * Abstract class that has common variables and methods for classes FileInput and FolderInput
+ * It is responsible for correct input of data
+ * @author andriylazorenko
  */
+
 public abstract class PathProcessing {
+
+    /**
+     * Variables
+     */
+
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private boolean locationIsCorrect;
     private String fileLocation;
@@ -13,38 +21,12 @@ public abstract class PathProcessing {
     private String fileName;
     private FileReader fileReader;
 
-    public FileReader input() throws IOException {
-        do {
-            setLocationIsCorrect(true);
-            System.out.println("Insert file location from Windows Explorer");
-            setFileLocation(getBr().readLine());
-            setAdjustedFileLocation(getFileLocation().replaceAll("\\\\", "\\\\\\\\"));
-            if (getAdjustedFileLocation().contains(".txt")) {
-
-            } else {
-                System.out.println("Insert file name in following format: Filename.txt");
-                setFileName(getBr().readLine());
-                setAdjustedFileLocation(getAdjustedFileLocation() + "\\\\\\\\" + getFileName());
-            }
-
-            //Checking the file path
-
-            try {
-                setFileReader(new FileReader(getAdjustedFileLocation()));
-            } catch (FileNotFoundException e) {
-                System.err.println("File location is incorrect. Try again =)");
-                setLocationIsCorrect(false);
-            }
-        } while (isLocationIsCorrect() == false);
-        return getFileReader();
-    }
+    /**
+     * Getters and Setters
+     */
 
     public BufferedReader getBr() {
         return br;
-    }
-
-    public void setBr(BufferedReader br) {
-        this.br = br;
     }
 
     public boolean isLocationIsCorrect() {
@@ -86,4 +68,39 @@ public abstract class PathProcessing {
     public void setFileReader(FileReader fileReader) {
         this.fileReader = fileReader;
     }
+
+    /**
+     * Method checks if location is correct and returns FileReader object if all the checks are passed
+     * @return FileReader object from source file with data
+     * @throws IOException
+     */
+
+    public FileReader input() throws IOException {
+
+        do {
+            setLocationIsCorrect(true);
+            System.out.println("Insert file location from Windows Explorer");
+            setFileLocation(getBr().readLine());
+            setAdjustedFileLocation(getFileLocation().replaceAll("\\\\", "\\\\\\\\"));
+            if (getAdjustedFileLocation().contains(".txt")) {
+
+            } else {
+                System.out.println("Insert file name in following format: Filename.txt");
+                setFileName(getBr().readLine());
+                setAdjustedFileLocation(getAdjustedFileLocation() + "\\\\\\\\" + getFileName());
+            }
+
+            //Checking the file path
+
+            try {
+                setFileReader(new FileReader(getAdjustedFileLocation()));
+            } catch (FileNotFoundException e) {
+                System.err.println("File location is incorrect. Try again =)");
+                setLocationIsCorrect(false);
+            }
+        } while (isLocationIsCorrect() == false);
+
+        return getFileReader();
+    }
+
 }

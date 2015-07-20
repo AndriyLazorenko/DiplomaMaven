@@ -6,550 +6,21 @@ import java.util.*;
 import Properties.Results;
 
 /**
- * Created by Master on 04-May-15.
+ * The composite class Both contains all variables necessary for computations as well as
+ * methods responsible for counting occurrences of dinucleotides, computing frequencies and
+ * other results
+ * @author andriylazorenko
  */
 
 public class Both implements SearchMethod {
 
-    //Getters & Setters for all the variables
-
-    public double getTotalFreq() {
-        return totalFreq;
-    }
-
-    public void setTotalFreq(double totalFreq) {
-        this.totalFreq = totalFreq;
-    }
-
-    public int getTotalSNP() {
-        return totalSNP;
-    }
-
-    public void setTotalSNP(int totalSNP) {
-        this.totalSNP = totalSNP;
-    }
-
-    public int getI() {
-        return i;
-    }
-
-    public void setI(int i) {
-        this.i = i;
-    }
-
-    public int getTtAfter() {
-        return ttAfter;
-    }
-
-    public void setTtAfter(int ttAfter) {
-        this.ttAfter = ttAfter;
-    }
-
-    public int getTaAfter() {
-        return taAfter;
-    }
-
-    public void setTaAfter(int taAfter) {
-        this.taAfter = taAfter;
-    }
-
-    public int getTcAfter() {
-        return tcAfter;
-    }
-
-    public void setTcAfter(int tcAfter) {
-        this.tcAfter = tcAfter;
-    }
-
-    public int getTgAfter() {
-        return tgAfter;
-    }
-
-    public void setTgAfter(int tgAfter) {
-        this.tgAfter = tgAfter;
-    }
-
-    public int getCtAfter() {
-        return ctAfter;
-    }
-
-    public void setCtAfter(int ctAfter) {
-        this.ctAfter = ctAfter;
-    }
-
-    public int getCaAfter() {
-        return caAfter;
-    }
-
-    public void setCaAfter(int caAfter) {
-        this.caAfter = caAfter;
-    }
-
-    public int getCgAfter() {
-        return cgAfter;
-    }
-
-    public void setCgAfter(int cgAfter) {
-        this.cgAfter = cgAfter;
-    }
-
-    public int getCcAfter() {
-        return ccAfter;
-    }
-
-    public void setCcAfter(int ccAfter) {
-        this.ccAfter = ccAfter;
-    }
-
-    public int getAaAfter() {
-        return aaAfter;
-    }
-
-    public void setAaAfter(int aaAfter) {
-        this.aaAfter = aaAfter;
-    }
-
-    public int getAtAfter() {
-        return atAfter;
-    }
-
-    public void setAtAfter(int atAfter) {
-        this.atAfter = atAfter;
-    }
-
-    public int getAcAfter() {
-        return acAfter;
-    }
-
-    public void setAcAfter(int acAfter) {
-        this.acAfter = acAfter;
-    }
-
-    public int getAgAfter() {
-        return agAfter;
-    }
-
-    public void setAgAfter(int agAfter) {
-        this.agAfter = agAfter;
-    }
-
-    public int getGaAfter() {
-        return gaAfter;
-    }
-
-    public void setGaAfter(int gaAfter) {
-        this.gaAfter = gaAfter;
-    }
-
-    public int getGgAfter() {
-        return ggAfter;
-    }
-
-    public void setGgAfter(int ggAfter) {
-        this.ggAfter = ggAfter;
-    }
-
-    public int getGcAfter() {
-        return gcAfter;
-    }
-
-    public void setGcAfter(int gcAfter) {
-        this.gcAfter = gcAfter;
-    }
-
-    public int getGtAfter() {
-        return gtAfter;
-    }
-
-    public void setGtAfter(int gtAfter) {
-        this.gtAfter = gtAfter;
-    }
-
-    public int getTtBefore() {
-        return ttBefore;
-    }
-
-    public void setTtBefore(int ttBefore) {
-        this.ttBefore = ttBefore;
-    }
-
-    public int getTaBefore() {
-        return taBefore;
-    }
-
-    public void setTaBefore(int taBefore) {
-        this.taBefore = taBefore;
-    }
-
-    public int getTcBefore() {
-        return tcBefore;
-    }
-
-    public void setTcBefore(int tcBefore) {
-        this.tcBefore = tcBefore;
-    }
-
-    public int getTgBefore() {
-        return tgBefore;
-    }
-
-    public void setTgBefore(int tgBefore) {
-        this.tgBefore = tgBefore;
-    }
-
-    public int getCtBefore() {
-        return ctBefore;
-    }
-
-    public void setCtBefore(int ctBefore) {
-        this.ctBefore = ctBefore;
-    }
-
-    public int getCaBefore() {
-        return caBefore;
-    }
-
-    public void setCaBefore(int caBefore) {
-        this.caBefore = caBefore;
-    }
-
-    public int getCgBefore() {
-        return cgBefore;
-    }
-
-    public void setCgBefore(int cgBefore) {
-        this.cgBefore = cgBefore;
-    }
-
-    public int getCcBefore() {
-        return ccBefore;
-    }
-
-    public void setCcBefore(int ccBefore) {
-        this.ccBefore = ccBefore;
-    }
-
-    public int getAaBefore() {
-        return aaBefore;
-    }
-
-    public void setAaBefore(int aaBefore) {
-        this.aaBefore = aaBefore;
-    }
-
-    public int getAtBefore() {
-        return atBefore;
-    }
-
-    public void setAtBefore(int atBefore) {
-        this.atBefore = atBefore;
-    }
-
-    public int getAcBefore() {
-        return acBefore;
-    }
-
-    public void setAcBefore(int acBefore) {
-        this.acBefore = acBefore;
-    }
-
-    public int getAgBefore() {
-        return agBefore;
-    }
-
-    public void setAgBefore(int agBefore) {
-        this.agBefore = agBefore;
-    }
-
-    public int getGaBefore() {
-        return gaBefore;
-    }
-
-    public void setGaBefore(int gaBefore) {
-        this.gaBefore = gaBefore;
-    }
-
-    public int getGgBefore() {
-        return ggBefore;
-    }
-
-    public void setGgBefore(int ggBefore) {
-        this.ggBefore = ggBefore;
-    }
-
-    public int getGcBefore() {
-        return gcBefore;
-    }
-
-    public void setGcBefore(int gcBefore) {
-        this.gcBefore = gcBefore;
-    }
-
-    public int getGtBefore() {
-        return gtBefore;
-    }
-
-    public void setGtBefore(int gtBefore) {
-        this.gtBefore = gtBefore;
-    }
-
-    public double getTtFreqAfter() {
-        return ttFreqAfter;
-    }
-
-    public void setTtFreqAfter(double ttFreqAfter) {
-        this.ttFreqAfter = ttFreqAfter;
-    }
-
-    public double getTaFreqAfter() {
-        return taFreqAfter;
-    }
-
-    public void setTaFreqAfter(double taFreqAfter) {
-        this.taFreqAfter = taFreqAfter;
-    }
-
-    public double getTcFreqAfter() {
-        return tcFreqAfter;
-    }
-
-    public void setTcFreqAfter(double tcFreqAfter) {
-        this.tcFreqAfter = tcFreqAfter;
-    }
-
-    public double getTgFreqAfter() {
-        return tgFreqAfter;
-    }
-
-    public void setTgFreqAfter(double tgFreqAfter) {
-        this.tgFreqAfter = tgFreqAfter;
-    }
-
-    public double getCtFreqAfter() {
-        return ctFreqAfter;
-    }
-
-    public void setCtFreqAfter(double ctFreqAfter) {
-        this.ctFreqAfter = ctFreqAfter;
-    }
-
-    public double getCaFreqAfter() {
-        return caFreqAfter;
-    }
-
-    public void setCaFreqAfter(double caFreqAfter) {
-        this.caFreqAfter = caFreqAfter;
-    }
-
-    public double getCcFreqAfter() {
-        return ccFreqAfter;
-    }
-
-    public void setCcFreqAfter(double ccFreqAfter) {
-        this.ccFreqAfter = ccFreqAfter;
-    }
-
-    public double getCgFreqAfter() {
-        return cgFreqAfter;
-    }
-
-    public void setCgFreqAfter(double cgFreqAfter) {
-        this.cgFreqAfter = cgFreqAfter;
-    }
-
-    public double getAaFreqAfter() {
-        return aaFreqAfter;
-    }
-
-    public void setAaFreqAfter(double aaFreqAfter) {
-        this.aaFreqAfter = aaFreqAfter;
-    }
-
-    public double getAcFreqAfter() {
-        return acFreqAfter;
-    }
-
-    public void setAcFreqAfter(double acFreqAfter) {
-        this.acFreqAfter = acFreqAfter;
-    }
-
-    public double getAgFreqAfter() {
-        return agFreqAfter;
-    }
-
-    public void setAgFreqAfter(double agFreqAfter) {
-        this.agFreqAfter = agFreqAfter;
-    }
-
-    public double getAtFreqAfter() {
-        return atFreqAfter;
-    }
-
-    public void setAtFreqAfter(double atFreqAfter) {
-        this.atFreqAfter = atFreqAfter;
-    }
-
-    public double getGaFreqAfter() {
-        return gaFreqAfter;
-    }
-
-    public void setGaFreqAfter(double gaFreqAfter) {
-        this.gaFreqAfter = gaFreqAfter;
-    }
-
-    public double getGcFreqAfter() {
-        return gcFreqAfter;
-    }
-
-    public void setGcFreqAfter(double gcFreqAfter) {
-        this.gcFreqAfter = gcFreqAfter;
-    }
-
-    public double getGgFreqAfter() {
-        return ggFreqAfter;
-    }
-
-    public void setGgFreqAfter(double ggFreqAfter) {
-        this.ggFreqAfter = ggFreqAfter;
-    }
-
-    public double getGtFreqAfter() {
-        return gtFreqAfter;
-    }
-
-    public void setGtFreqAfter(double gtFreqAfter) {
-        this.gtFreqAfter = gtFreqAfter;
-    }
-
-    public double getTtFreqBefore() {
-        return ttFreqBefore;
-    }
-
-    public void setTtFreqBefore(double ttFreqBefore) {
-        this.ttFreqBefore = ttFreqBefore;
-    }
-
-    public double getTaFreqBefore() {
-        return taFreqBefore;
-    }
-
-    public void setTaFreqBefore(double taFreqBefore) {
-        this.taFreqBefore = taFreqBefore;
-    }
-
-    public double getTcFreqBefore() {
-        return tcFreqBefore;
-    }
-
-    public void setTcFreqBefore(double tcFreqBefore) {
-        this.tcFreqBefore = tcFreqBefore;
-    }
-
-    public double getTgFreqBefore() {
-        return tgFreqBefore;
-    }
-
-    public void setTgFreqBefore(double tgFreqBefore) {
-        this.tgFreqBefore = tgFreqBefore;
-    }
-
-    public double getCtFreqBefore() {
-        return ctFreqBefore;
-    }
-
-    public void setCtFreqBefore(double ctFreqBefore) {
-        this.ctFreqBefore = ctFreqBefore;
-    }
-
-    public double getCaFreqBefore() {
-        return caFreqBefore;
-    }
-
-    public void setCaFreqBefore(double caFreqBefore) {
-        this.caFreqBefore = caFreqBefore;
-    }
-
-    public double getCcFreqBefore() {
-        return ccFreqBefore;
-    }
-
-    public void setCcFreqBefore(double ccFreqBefore) {
-        this.ccFreqBefore = ccFreqBefore;
-    }
-
-    public double getCgFreqBefore() {
-        return cgFreqBefore;
-    }
-
-    public void setCgFreqBefore(double cgFreqBefore) {
-        this.cgFreqBefore = cgFreqBefore;
-    }
-
-    public double getAaFreqBefore() {
-        return aaFreqBefore;
-    }
-
-    public void setAaFreqBefore(double aaFreqBefore) {
-        this.aaFreqBefore = aaFreqBefore;
-    }
-
-    public double getAcFreqBefore() {
-        return acFreqBefore;
-    }
-
-    public void setAcFreqBefore(double acFreqBefore) {
-        this.acFreqBefore = acFreqBefore;
-    }
-
-    public double getAgFreqBefore() {
-        return agFreqBefore;
-    }
-
-    public void setAgFreqBefore(double agFreqBefore) {
-        this.agFreqBefore = agFreqBefore;
-    }
-
-    public double getAtFreqBefore() {
-        return atFreqBefore;
-    }
-
-    public void setAtFreqBefore(double atFreqBefore) {
-        this.atFreqBefore = atFreqBefore;
-    }
-
-    public double getGaFreqBefore() {
-        return gaFreqBefore;
-    }
-
-    public void setGaFreqBefore(double gaFreqBefore) {
-        this.gaFreqBefore = gaFreqBefore;
-    }
-
-    public double getGcFreqBefore() {
-        return gcFreqBefore;
-    }
-
-    public void setGcFreqBefore(double gcFreqBefore) {
-        this.gcFreqBefore = gcFreqBefore;
-    }
-
-    public double getGgFreqBefore() {
-        return ggFreqBefore;
-    }
-
-    public void setGgFreqBefore(double ggFreqBefore) {
-        this.ggFreqBefore = ggFreqBefore;
-    }
-
-    public double getGtFreqBefore() {
-        return gtFreqBefore;
-    }
-
-    public void setGtFreqBefore(double gtFreqBefore) {
-        this.gtFreqBefore = gtFreqBefore;
-    }
-
-    //Declarations of phrases, used AFTER variation allele
+    /**
+     * Below are all the variables split by groups
+     */
+
+    /**
+     * Declarations of counters of phrases, used AFTER variation allele
+     */
 
     private int ttAfter = 0;
     private int taAfter = 0;
@@ -568,7 +39,9 @@ public class Both implements SearchMethod {
     private int gcAfter = 0;
     private int gtAfter = 0;
 
-    //Declaration of phrases used BEFORE variation allele
+    /**
+     * Declarations of counters of phrases, used BEFORE variation allele
+     */
 
     private int ttBefore = 0;
     private int taBefore = 0;
@@ -587,7 +60,9 @@ public class Both implements SearchMethod {
     private int gcBefore = 0;
     private int gtBefore = 0;
 
-    //Declarations of frequencies of occurrence of phrases used AFTER variation Controller.Allele
+    /**
+     * Declarations of frequencies of occurrence of phrases used AFTER variation Allele
+     */
 
     private double ttFreqAfter;
     private double taFreqAfter;
@@ -606,7 +81,9 @@ public class Both implements SearchMethod {
     private double ggFreqAfter;
     private double gtFreqAfter;
 
-    //Declarations of frequencies of occurrence of phrases used BEFORE variation Controller.Allele
+    /**
+     * Declarations of frequencies of occurrence of phrases used BEFORE variation Allele
+     */
 
     private double ttFreqBefore;
     private double taFreqBefore;
@@ -625,7 +102,9 @@ public class Both implements SearchMethod {
     private double ggFreqBefore;
     private double gtFreqBefore;
 
-    //Declarations of other variables
+    /**
+     * Declarations of various other variables
+     */
 
     protected int sumOfAfter = 0;
     protected int sumOfBefore = 0;
@@ -641,21 +120,569 @@ public class Both implements SearchMethod {
     protected String variationAllele;
     protected Properties properties = new Properties();
 
-    public int getTotalSNPBefore() {
-        return totalSNPBefore;
+    /**
+     * Getters for all the variables
+     */
+
+    public int getTtAfter() {
+        return ttAfter;
     }
 
-    public void setTotalSNPBefore(int totalSNPBefore) {
-        this.totalSNPBefore = totalSNPBefore;
+    public int getTaAfter() {
+        return taAfter;
+    }
+
+    public int getTcAfter() {
+        return tcAfter;
+    }
+
+    public int getTgAfter() {
+        return tgAfter;
+    }
+
+    public int getCtAfter() {
+        return ctAfter;
+    }
+
+    public int getCaAfter() {
+        return caAfter;
+    }
+
+    public int getCgAfter() {
+        return cgAfter;
+    }
+
+    public int getCcAfter() {
+        return ccAfter;
+    }
+
+    public int getAaAfter() {
+        return aaAfter;
+    }
+
+    public int getAtAfter() {
+        return atAfter;
+    }
+
+    public int getAcAfter() {
+        return acAfter;
+    }
+
+    public int getAgAfter() {
+        return agAfter;
+    }
+
+    public int getGaAfter() {
+        return gaAfter;
+    }
+
+    public int getGgAfter() {
+        return ggAfter;
+    }
+
+    public int getGcAfter() {
+        return gcAfter;
+    }
+
+    public int getGtAfter() {
+        return gtAfter;
+    }
+
+    public int getTtBefore() {
+        return ttBefore;
+    }
+
+    public int getTaBefore() {
+        return taBefore;
+    }
+
+    public int getTcBefore() {
+        return tcBefore;
+    }
+
+    public int getTgBefore() {
+        return tgBefore;
+    }
+
+    public int getCtBefore() {
+        return ctBefore;
+    }
+
+    public int getCaBefore() {
+        return caBefore;
+    }
+
+    public int getCgBefore() {
+        return cgBefore;
+    }
+
+    public int getCcBefore() {
+        return ccBefore;
+    }
+
+    public int getAaBefore() {
+        return aaBefore;
+    }
+
+    public int getAtBefore() {
+        return atBefore;
+    }
+
+    public int getAcBefore() {
+        return acBefore;
+    }
+
+    public int getAgBefore() {
+        return agBefore;
+    }
+
+    public int getGaBefore() {
+        return gaBefore;
+    }
+
+    public int getGgBefore() {
+        return ggBefore;
+    }
+
+    public int getGcBefore() {
+        return gcBefore;
+    }
+
+    public int getGtBefore() {
+        return gtBefore;
+    }
+
+    public double getTtFreqAfter() {
+        return ttFreqAfter;
+    }
+
+    public double getTaFreqAfter() {
+        return taFreqAfter;
+    }
+
+    public double getTcFreqAfter() {
+        return tcFreqAfter;
+    }
+
+    public double getTgFreqAfter() {
+        return tgFreqAfter;
+    }
+
+    public double getCtFreqAfter() {
+        return ctFreqAfter;
+    }
+
+    public double getCaFreqAfter() {
+        return caFreqAfter;
+    }
+
+    public double getCcFreqAfter() {
+        return ccFreqAfter;
+    }
+
+    public double getCgFreqAfter() {
+        return cgFreqAfter;
+    }
+
+    public double getAaFreqAfter() {
+        return aaFreqAfter;
+    }
+
+    public double getAcFreqAfter() {
+        return acFreqAfter;
+    }
+
+    public double getAgFreqAfter() {
+        return agFreqAfter;
+    }
+
+    public double getAtFreqAfter() {
+        return atFreqAfter;
+    }
+
+    public double getGaFreqAfter() {
+        return gaFreqAfter;
+    }
+
+    public double getGcFreqAfter() {
+        return gcFreqAfter;
+    }
+
+    public double getGgFreqAfter() {
+        return ggFreqAfter;
+    }
+
+    public double getGtFreqAfter() {
+        return gtFreqAfter;
+    }
+
+    public double getTtFreqBefore() {
+        return ttFreqBefore;
+    }
+
+    public double getTaFreqBefore() {
+        return taFreqBefore;
+    }
+
+    public double getTcFreqBefore() {
+        return tcFreqBefore;
+    }
+
+    public double getTgFreqBefore() {
+        return tgFreqBefore;
+    }
+
+    public double getCtFreqBefore() {
+        return ctFreqBefore;
+    }
+
+    public double getCaFreqBefore() {
+        return caFreqBefore;
+    }
+
+    public double getCcFreqBefore() {
+        return ccFreqBefore;
+    }
+
+    public double getCgFreqBefore() {
+        return cgFreqBefore;
+    }
+
+    public double getAaFreqBefore() {
+        return aaFreqBefore;
+    }
+
+    public double getAcFreqBefore() {
+        return acFreqBefore;
+    }
+
+    public double getAgFreqBefore() {
+        return agFreqBefore;
+    }
+
+    public double getAtFreqBefore() {
+        return atFreqBefore;
+    }
+
+    public double getGaFreqBefore() {
+        return gaFreqBefore;
+    }
+
+    public double getGcFreqBefore() {
+        return gcFreqBefore;
+    }
+
+    public double getGgFreqBefore() {
+        return ggFreqBefore;
+    }
+
+    public double getGtFreqBefore() {
+        return gtFreqBefore;
+    }
+
+    public int getI() {
+        return i;
+    }
+
+    public int getTotalSNP() {
+        return totalSNP;
+    }
+
+    public double getTotalFreq() {
+        return totalFreq;
     }
 
     public double getTotalFreqBefore() {
         return totalFreqBefore;
     }
 
+    public int getTotalSNPBefore() {
+        return totalSNPBefore;
+    }
+
+    /**
+     * Setters for all the variables
+     */
+
+    public void setTotalSNP(int totalSNP) {
+        this.totalSNP = totalSNP;
+    }
+
+    public void setTotalFreq(double totalFreq) {
+        this.totalFreq = totalFreq;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
+
+    public void setTtAfter(int ttAfter) {
+        this.ttAfter = ttAfter;
+    }
+
+    public void setTaAfter(int taAfter) {
+        this.taAfter = taAfter;
+    }
+
+    public void setTcAfter(int tcAfter) {
+        this.tcAfter = tcAfter;
+    }
+
+    public void setTgAfter(int tgAfter) {
+        this.tgAfter = tgAfter;
+    }
+
+    public void setCtAfter(int ctAfter) {
+        this.ctAfter = ctAfter;
+    }
+
+    public void setCaAfter(int caAfter) {
+        this.caAfter = caAfter;
+    }
+
+    public void setCgAfter(int cgAfter) {
+        this.cgAfter = cgAfter;
+    }
+
+    public void setCcAfter(int ccAfter) {
+        this.ccAfter = ccAfter;
+    }
+
+    public void setAaAfter(int aaAfter) {
+        this.aaAfter = aaAfter;
+    }
+
+    public void setAtAfter(int atAfter) {
+        this.atAfter = atAfter;
+    }
+
+    public void setAcAfter(int acAfter) {
+        this.acAfter = acAfter;
+    }
+
+    public void setAgAfter(int agAfter) {
+        this.agAfter = agAfter;
+    }
+
+    public void setGaAfter(int gaAfter) {
+        this.gaAfter = gaAfter;
+    }
+
+    public void setGgAfter(int ggAfter) {
+        this.ggAfter = ggAfter;
+    }
+
+    public void setGcAfter(int gcAfter) {
+        this.gcAfter = gcAfter;
+    }
+
+    public void setGtAfter(int gtAfter) {
+        this.gtAfter = gtAfter;
+    }
+
+    public void setTtBefore(int ttBefore) {
+        this.ttBefore = ttBefore;
+    }
+
+    public void setTaBefore(int taBefore) {
+        this.taBefore = taBefore;
+    }
+
+    public void setTcBefore(int tcBefore) {
+        this.tcBefore = tcBefore;
+    }
+
+    public void setTgBefore(int tgBefore) {
+        this.tgBefore = tgBefore;
+    }
+
+    public void setCtBefore(int ctBefore) {
+        this.ctBefore = ctBefore;
+    }
+
+    public void setCaBefore(int caBefore) {
+        this.caBefore = caBefore;
+    }
+
+    public void setCgBefore(int cgBefore) {
+        this.cgBefore = cgBefore;
+    }
+
+    public void setCcBefore(int ccBefore) {
+        this.ccBefore = ccBefore;
+    }
+
+    public void setAaBefore(int aaBefore) {
+        this.aaBefore = aaBefore;
+    }
+
+    public void setAtBefore(int atBefore) {
+        this.atBefore = atBefore;
+    }
+
+    public void setAcBefore(int acBefore) {
+        this.acBefore = acBefore;
+    }
+
+    public void setAgBefore(int agBefore) {
+        this.agBefore = agBefore;
+    }
+
+    public void setGaBefore(int gaBefore) {
+        this.gaBefore = gaBefore;
+    }
+
+    public void setGgBefore(int ggBefore) {
+        this.ggBefore = ggBefore;
+    }
+
+    public void setGcBefore(int gcBefore) {
+        this.gcBefore = gcBefore;
+    }
+
+    public void setGtBefore(int gtBefore) {
+        this.gtBefore = gtBefore;
+    }
+
+    public void setTtFreqAfter(double ttFreqAfter) {
+        this.ttFreqAfter = ttFreqAfter;
+    }
+
+    public void setTaFreqAfter(double taFreqAfter) {
+        this.taFreqAfter = taFreqAfter;
+    }
+
+    public void setTcFreqAfter(double tcFreqAfter) {
+        this.tcFreqAfter = tcFreqAfter;
+    }
+
+    public void setTgFreqAfter(double tgFreqAfter) {
+        this.tgFreqAfter = tgFreqAfter;
+    }
+
+    public void setCtFreqAfter(double ctFreqAfter) {
+        this.ctFreqAfter = ctFreqAfter;
+    }
+
+    public void setCaFreqAfter(double caFreqAfter) {
+        this.caFreqAfter = caFreqAfter;
+    }
+
+    public void setCcFreqAfter(double ccFreqAfter) {
+        this.ccFreqAfter = ccFreqAfter;
+    }
+
+    public void setCgFreqAfter(double cgFreqAfter) {
+        this.cgFreqAfter = cgFreqAfter;
+    }
+
+    public void setAaFreqAfter(double aaFreqAfter) {
+        this.aaFreqAfter = aaFreqAfter;
+    }
+
+    public void setAcFreqAfter(double acFreqAfter) {
+        this.acFreqAfter = acFreqAfter;
+    }
+
+    public void setAgFreqAfter(double agFreqAfter) {
+        this.agFreqAfter = agFreqAfter;
+    }
+
+    public void setAtFreqAfter(double atFreqAfter) {
+        this.atFreqAfter = atFreqAfter;
+    }
+
+    public void setGaFreqAfter(double gaFreqAfter) {
+        this.gaFreqAfter = gaFreqAfter;
+    }
+
+    public void setGcFreqAfter(double gcFreqAfter) {
+        this.gcFreqAfter = gcFreqAfter;
+    }
+
+    public void setGgFreqAfter(double ggFreqAfter) {
+        this.ggFreqAfter = ggFreqAfter;
+    }
+
+    public void setGtFreqAfter(double gtFreqAfter) {
+        this.gtFreqAfter = gtFreqAfter;
+    }
+
+    public void setTtFreqBefore(double ttFreqBefore) {
+        this.ttFreqBefore = ttFreqBefore;
+    }
+
+    public void setTaFreqBefore(double taFreqBefore) {
+        this.taFreqBefore = taFreqBefore;
+    }
+
+    public void setTcFreqBefore(double tcFreqBefore) {
+        this.tcFreqBefore = tcFreqBefore;
+    }
+
+    public void setTgFreqBefore(double tgFreqBefore) {
+        this.tgFreqBefore = tgFreqBefore;
+    }
+
+    public void setCtFreqBefore(double ctFreqBefore) {
+        this.ctFreqBefore = ctFreqBefore;
+    }
+
+    public void setCaFreqBefore(double caFreqBefore) {
+        this.caFreqBefore = caFreqBefore;
+    }
+
+    public void setCcFreqBefore(double ccFreqBefore) {
+        this.ccFreqBefore = ccFreqBefore;
+    }
+
+    public void setCgFreqBefore(double cgFreqBefore) {
+        this.cgFreqBefore = cgFreqBefore;
+    }
+
+    public void setAaFreqBefore(double aaFreqBefore) {
+        this.aaFreqBefore = aaFreqBefore;
+    }
+
+    public void setAcFreqBefore(double acFreqBefore) {
+        this.acFreqBefore = acFreqBefore;
+    }
+
+    public void setAgFreqBefore(double agFreqBefore) {
+        this.agFreqBefore = agFreqBefore;
+    }
+
+    public void setAtFreqBefore(double atFreqBefore) {
+        this.atFreqBefore = atFreqBefore;
+    }
+
+    public void setGaFreqBefore(double gaFreqBefore) {
+        this.gaFreqBefore = gaFreqBefore;
+    }
+
+    public void setGcFreqBefore(double gcFreqBefore) {
+        this.gcFreqBefore = gcFreqBefore;
+    }
+
+    public void setGgFreqBefore(double ggFreqBefore) {
+        this.ggFreqBefore = ggFreqBefore;
+    }
+
+    public void setGtFreqBefore(double gtFreqBefore) {
+        this.gtFreqBefore = gtFreqBefore;
+    }
+
+    public void setTotalSNPBefore(int totalSNPBefore) {
+        this.totalSNPBefore = totalSNPBefore;
+    }
+
     public void setTotalFreqBefore(double totalFreqBefore) {
         this.totalFreqBefore = totalFreqBefore;
     }
+
+    /**
+     * The values of counters of dinucleotides after SNP are added to data structure of results
+     */
 
     protected void addAfterToResults(){
         properties.setProperty("AA_After",String.valueOf(getAaAfter()));
@@ -677,6 +704,11 @@ public class Both implements SearchMethod {
         properties.setProperty("Sum_After",String.valueOf(sumOfAfter));
         properties.setProperty("Diff_After",String.valueOf(sumDiffAfter));
     }
+
+    /**
+     * The values of frequencies of dinucleotides after SNP are added to data structure of results
+     */
+
     protected void addAfterFreqToResults(){
 
         properties.setProperty("AA_freq_After",formatter(getAaFreqAfter()));
@@ -701,6 +733,10 @@ public class Both implements SearchMethod {
         properties.setProperty("Diff_After_Freq",formatter(doubleAfterFreq));
     }
 
+    /**
+     * The values of counters of dinucleotides before SNP are added to data structure of results
+     */
+
     protected void addBeforeToResults(){
 
         properties.setProperty("AA_before", String.valueOf(getAaBefore()));
@@ -723,6 +759,10 @@ public class Both implements SearchMethod {
         properties.setProperty("Diff_Before", String.valueOf(sumDiffBefore));
 
     }
+
+    /**
+     * The values of frequencies of dinucleotides before SNP are added to data structure of results
+     */
 
     protected void addBeforeFreqToResults(){
 
@@ -748,6 +788,10 @@ public class Both implements SearchMethod {
         properties.setProperty("Diff_Before_Freq", formatter(doubleBeforeFreq));
 
     }
+
+    /**
+     * The values of frequencies of dinucleotides before SNP are computed from counters
+     */
 
     protected void computeBefore(){
 
@@ -779,6 +823,10 @@ public class Both implements SearchMethod {
         doubleBeforeFreq = sumDiffBefore/getI();
     }
 
+    /**
+     * The values of frequencies of dinucleotides after SNP are computed from counters
+     */
+
     protected void computeAfter(){
 
         setAaFreqAfter((double) getAaAfter() / getI());
@@ -809,6 +857,10 @@ public class Both implements SearchMethod {
         sumDiffAfter = getI()-sumOfAfter;
         doubleAfterFreq = sumDiffAfter/getI();
     }
+
+    /**
+     * Method erases all variables
+     */
 
     @Override
     public void erase() {
@@ -887,12 +939,22 @@ public class Both implements SearchMethod {
 
     }
 
+    /**
+     * Method formats output of double type variables
+     */
+
     @Override
     public String formatter(double d) {
         NumberFormat formatter = new DecimalFormat("#0.000");
         String forRet = formatter.format(d);
         return forRet;
     }
+
+    /**
+     * The method searches single string for dinucleotide phrases for SNP and
+     * affects all counters depending on phrases found
+     * @param inputString String which is checked. Must be a line
+     */
 
     @Override
     public void searchInSingleString(String inputString) {
@@ -976,6 +1038,10 @@ public class Both implements SearchMethod {
         setI(getI() + 1);
     }
 
+    /**
+     * Method computes all results from counters and returns Results class
+     */
+
     @Override
     public Results fastCompute() {
 
@@ -995,6 +1061,10 @@ public class Both implements SearchMethod {
 
         return forRet;
     }
+
+    /**
+     * Getter for Variation Allele
+     */
 
     @Override
     public void getVariationAllele(String variationAllele) {
