@@ -19,61 +19,82 @@ import java.util.Map;
 
 public class MainDinucleotideFreqs {
 
-    //TODO debug method until it counts. So far it doesn't count
     public static void main(String[] args) {
-        //Variables
+
         AllResultsContainer container = new AllResultsContainer();
-        ProcessingDinucleotideFreq controller;
-        String allFolder = "";
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        boolean continues = true;
+        while (continues) {
+            //Variables
+            ProcessingDinucleotideFreq controller;
+            String allFolder = "";
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Do you want to process ENTIRE folder? Y/N");
-        try {
-            allFolder = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (allFolder.toLowerCase().startsWith("y")) {
-
-            FolderInput folder = new FolderInput();
-            String folderLocation = "";
-
-            //Asking for folder location with a simple verification
-
+            System.out.println("Do you want to process ENTIRE folder? Y/N");
             try {
-                folderLocation = folder.inputFolder();
+                allFolder = br.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Map<String,FileReader> files = folder.input(folderLocation);
-            for (String s : files.keySet()) {
-                controller = new ProcessingDinucleotideFreq(s,files.get(s));
+
+            //Block processing a folder
+
+            if (allFolder.toLowerCase().startsWith("y")) {
+
+                FolderInput folder = new FolderInput();
+                String folderLocation = "";
+
+                //Asking for folder location with a simple verification
+
+                try {
+                    folderLocation = folder.inputFolder();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Map<String, FileReader> files = folder.input(folderLocation);
+                for (String s : files.keySet()) {
+                    controller = new ProcessingDinucleotideFreq(s, files.get(s));
+                    controller.addToDataContainer(container);
+                }
+            }
+
+            //Block processing a file
+
+            else {
+
+                //Inputing file path + verification
+
+                FileInput fileInput = new FileInput();
+                FileReader fileReader = null;
+
+                try {
+                    fileReader = fileInput.input();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                String oldFileName = "";
+                oldFileName = fileInput.getAdjustedFileLocation();
+
+                controller = new ProcessingDinucleotideFreq(oldFileName, fileReader);
                 controller.addToDataContainer(container);
+
             }
-        }
+            container.printContainerToConsole();
+            container.writeContainerToFile();
 
-        else {
-
-            //Inputing file path + verification
-
-            FileInput fileInput = new FileInput();
-            FileReader fileReader = null;
-
+            System.out.println("Do you want to continue? Y/N");
+            String goOn = null;
             try {
-                fileReader = fileInput.input();
+                goOn = br.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            String oldFileName = "";
-            oldFileName = fileInput.getAdjustedFileLocation();
-
-            controller = new ProcessingDinucleotideFreq(oldFileName,fileReader);
-            controller.addToDataContainer(container);
-
+            if (goOn.toLowerCase().startsWith("y")){
+                continues = true;
+            }
+            else {
+                continues = false;
+            }
         }
-        container.printContainerToConsole();
-        container.writeContainerToFile();
     }
 }

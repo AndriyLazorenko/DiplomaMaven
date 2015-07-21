@@ -38,6 +38,7 @@ public class CSVParser {
         Set<String> helper = new LinkedHashSet<>();
         this.results = res;
         this.adjustedFreq = adjustedFreq;
+        this.adjustedFreq.computeFrequencies();
         try {
             final String templatePath = "src/main/resources/ConfigFiles/ExcelFormatting/Template.txt";
             fileReader = new FileReader(templatePath);
@@ -77,7 +78,10 @@ public class CSVParser {
         forCSV[0]=forCSV[0];
         forCSV[1]=forCSV[1].replace(";;", ";" + results.getVariationAllele() + ";");
 
-        forCSV[4]=forCSV[4].replaceFirst(";;"  ,";" + results.getProperties().getProperty("AA_After") + ";");
+        /*The block substitutes ;; symbols in the pattern with number of occurrences of corresponding
+        dinucleotides after SNP*/
+
+        forCSV[4]=forCSV[4].replaceFirst(";;"  ,";"+results.getProperties().getProperty("AA_After")+";");
         forCSV[5]=forCSV[5].replaceFirst(";;"  ,";"+results.getProperties().getProperty("AC_After")+";");
         forCSV[6]=forCSV[6].replaceFirst(";;"  ,";"+results.getProperties().getProperty("AG_After")+";");
         forCSV[7]=forCSV[7].replaceFirst(";;"  ,";"+results.getProperties().getProperty("AT_After")+";");
@@ -90,9 +94,32 @@ public class CSVParser {
         forCSV[14]=forCSV[14].replaceFirst(";;",";"+results.getProperties().getProperty("GG_After")+";");
         forCSV[15]=forCSV[15].replaceFirst(";;",";"+results.getProperties().getProperty("GT_After")+";");
         forCSV[16]=forCSV[16].replaceFirst(";;",";"+results.getProperties().getProperty("TA_After")+";");
-        forCSV[17]=forCSV[17].replaceFirst(";;", ";" + results.getProperties().getProperty("TC_After") + ";");
-        forCSV[18]=forCSV[18].replaceFirst(";;", ";" + results.getProperties().getProperty("TG_After") + ";");
-        forCSV[19]=forCSV[19].replaceFirst(";;", ";" + results.getProperties().getProperty("TT_After") + ";");
+        forCSV[17]=forCSV[17].replaceFirst(";;",";"+results.getProperties().getProperty("TC_After")+";");
+        forCSV[18]=forCSV[18].replaceFirst(";;",";"+results.getProperties().getProperty("TG_After")+";");
+        forCSV[19]=forCSV[19].replaceFirst(";;",";"+results.getProperties().getProperty("TT_After")+";");
+
+        /*The block substitutes 1/16 symbols in the pattern with frequency of occurrence of corresponding
+        dinucleotides in data analysed*/
+
+        forCSV[4]=forCSV[4].replaceFirst("1/16"  ,adjustedFreq.getFrequencies().get("aaFreq"));
+        forCSV[5]=forCSV[5].replaceFirst("1/16"  ,adjustedFreq.getFrequencies().get("acFreq"));
+        forCSV[6]=forCSV[6].replaceFirst("1/16"  ,adjustedFreq.getFrequencies().get("agFreq"));
+        forCSV[7]=forCSV[7].replaceFirst("1/16"  ,adjustedFreq.getFrequencies().get("atFreq"));
+        forCSV[8]=forCSV[8].replaceFirst("1/16"  ,adjustedFreq.getFrequencies().get("caFreq"));
+        forCSV[9]=forCSV[9].replaceFirst("1/16"  ,adjustedFreq.getFrequencies().get("ccFreq"));
+        forCSV[10]=forCSV[10].replaceFirst("1/16",adjustedFreq.getFrequencies().get("cgFreq"));
+        forCSV[11]=forCSV[11].replaceFirst("1/16",adjustedFreq.getFrequencies().get("ctFreq"));
+        forCSV[12]=forCSV[12].replaceFirst("1/16",adjustedFreq.getFrequencies().get("gaFreq"));
+        forCSV[13]=forCSV[13].replaceFirst("1/16",adjustedFreq.getFrequencies().get("gcFreq"));
+        forCSV[14]=forCSV[14].replaceFirst("1/16",adjustedFreq.getFrequencies().get("ggFreq"));
+        forCSV[15]=forCSV[15].replaceFirst("1/16",adjustedFreq.getFrequencies().get("gtFreq"));
+        forCSV[16]=forCSV[16].replaceFirst("1/16",adjustedFreq.getFrequencies().get("taFreq"));
+        forCSV[17]=forCSV[17].replaceFirst("1/16",adjustedFreq.getFrequencies().get("tcFreq"));
+        forCSV[18]=forCSV[18].replaceFirst("1/16",adjustedFreq.getFrequencies().get("tgFreq"));
+        forCSV[19]=forCSV[19].replaceFirst("1/16",adjustedFreq.getFrequencies().get("ttFreq"));
+
+        /*The block substitutes ;; symbols in the pattern with number of occurrences of corresponding
+        dinucleotides before SNP*/
 
         forCSV[4]=forCSV[4].replace(";;", ";" + results.getProperties().getProperty("AA_before") + ";");
         forCSV[5]=forCSV[5].replace(";;", ";" + results.getProperties().getProperty("AC_before") + ";");

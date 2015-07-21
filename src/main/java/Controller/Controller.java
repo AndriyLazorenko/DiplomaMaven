@@ -6,7 +6,6 @@ import Controller.InputProcessing.FileInput;
 import Controller.InputProcessing.FolderInput;
 import Controller.InputProcessing.AlleleValidation;
 import Properties.Results;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -41,8 +40,7 @@ public class Controller {
     private Map<String,FileReader> folderFiles;
     private int counterOfFilesProcessed=0;
     private String variationAllele;
-
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    protected BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private AllResultsContainer adjustedFreq = new AllResultsContainer();
 
     /**
@@ -51,6 +49,7 @@ public class Controller {
      */
 
     public void consoleMenu () throws IOException {
+
         while (carryOn) {
 
             //Algorithm for processing entire folder
@@ -177,13 +176,30 @@ public class Controller {
 
     private class FolderProcessing extends Processing {
 
+        /**
+         * Variables
+         */
+
         private FolderInput folder;
+
+        /**
+         * Constructor accepts String with variation allele, FolderInput object and AllResultsContainer
+         * object containing info on frequency of dinucleotides' statistical appearance.
+         * @param s - String with variation allele info
+         * @param f - FolderInput object
+         * @param adjustedFreq - AllResultsContainer object with statistical info
+         */
 
         public FolderProcessing (String s, FolderInput f, AllResultsContainer adjustedFreq) {
             this.allele = s;
             this.folder = f;
             this.adjustedFreq= adjustedFreq;
         }
+
+        /**
+         * Method for processing Allele
+         * @throws IOException
+         */
 
         protected void processingAllele ()throws IOException {
         variationAllele = getChosenAllele().getVariationAllele();
@@ -222,7 +238,7 @@ public class Controller {
             if (choiceWrite.equals("Y") || choiceWrite.equals("y")) {
                 getChosenResultsDB().parsingDBBehaviour.compute();
                 getChosenResultsDB().setResults(getChosenResultsDB().parsingDBBehaviour.creatingResults(variationAllele));
-                getChosenResultsDB().toFile(folderLocation + "\\\\\\\\" + "smth.txt");
+                getChosenResultsDB().toFile(folderLocation + "/" + "smth.txt");
                 getChosenResultsDB().clearResults();
             }
 
@@ -237,14 +253,29 @@ public class Controller {
     }
     }
 
+    /**
+     * Class for processing only one file from filepath.
+     * @author andriylazorenko
+     */
+
     private class FileProcessing extends Processing{
 
-        //setVariables method can be improved to include multiple alleles
+        /**
+         * Constructor accepts String with variation allele info as well as AllResultsContainer object
+         * with info on statistical frequency of occurrence of dinucleotides
+         * @param s
+         * @param adjustedFreq
+         */
 
         public FileProcessing (String s, AllResultsContainer adjustedFreq) {
             this.allele = s;
             this.adjustedFreq = adjustedFreq;
         }
+
+        /**
+         * Method that processes allele
+         * @throws IOException
+         */
 
         protected void processingAllele() throws IOException {
 

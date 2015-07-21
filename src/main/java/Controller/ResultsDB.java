@@ -72,7 +72,14 @@ public class ResultsDB {
     public void toFile(String fileName) throws IOException {
 
         setFileName(fileName);
-        setFileName(getFileName().substring(0,getFileName().lastIndexOf("\\"))+"\\"+variationAllele+"_Results_Database.csv");
+        if (getFileName().contains("\\")) {
+            setFileName(getFileName().substring(0, getFileName().lastIndexOf("\\"))
+                    + "\\" + variationAllele + "_Results_Database.csv");
+        }
+        else {
+            setFileName(getFileName().substring(0, getFileName().lastIndexOf("/"))
+                    + "/" + variationAllele + "_Results_Database.csv");
+        }
         File file = new File(getFileName());
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
         CSVParser csv = new CSVParser(results,adjustedFreq);

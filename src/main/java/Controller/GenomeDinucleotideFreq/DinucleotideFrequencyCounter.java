@@ -102,7 +102,7 @@ public class DinucleotideFrequencyCounter extends VariableContainer {
      * @returns A map of results. Names of dinucleotides are keys, counters are values
      */
 
-    public Map<String,Object> run(){
+    public Map<String,Long> run(){
         process();
         return formResults();
     }

@@ -16,7 +16,7 @@ public class ProcessingDinucleotideFreq {
      * Variables
      */
 
-    private Map<String,Object> results = new HashMap<>();
+    private Map<String,Long> results = new HashMap<>();
     private String filename;
     private FileReader input;
     private DinucleotideFrequencyCounter counter;
@@ -69,5 +69,6 @@ public class ProcessingDinucleotideFreq {
         container.tcCounter +=Integer.parseInt(results.get("tc").toString());
         container.tgCounter +=Integer.parseInt(results.get("tg").toString());
         container.ttCounter +=Integer.parseInt(results.get("tt").toString());
+
     }
 }

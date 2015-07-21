@@ -74,12 +74,11 @@ public class FolderInput extends PathProcessing {
         FileReader[] frArray = new FileReader[counterOfTxtFiles];
 
         //Creating a map of file destinations (key) and file contents (value)
-        //TODO debug for use on UNIX systems
 
         int position=0;
-        for (String s:namesOfFilesInFolder){
+        for (String s: namesOfFilesInFolder){
             if (s.contains(".txt")&&!s.contains("Info")){       //extra check so that our program doesn't include info file
-                usefulFiles[position] = folderLocation+"\\\\" + s;
+                usefulFiles[position] = folderLocation+"/" + s;
                 try {
                     frArray[position]= new FileReader(usefulFiles[position]);
                 } catch (FileNotFoundException e) {

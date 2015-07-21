@@ -55,7 +55,7 @@ public abstract class VariableContainer {
      * @returns Map of results. Names of dinucleotides are keys, counters are values
      */
 
-    protected Map<String,Object> formResults(){
+    protected Map<String,Long> formResults(){
 
         total  = aaCounter+
                 acCounter+
@@ -74,7 +74,7 @@ public abstract class VariableContainer {
                 tgCounter+
                 ttCounter;
         
-        Map <String,Object> forRet = new TreeMap<>();
+        Map <String,Long> forRet = new TreeMap<>();
         forRet.put(aa,aaCounter);
         forRet.put(ac,acCounter);
         forRet.put(ag,agCounter);
