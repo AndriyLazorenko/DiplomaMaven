@@ -118,6 +118,28 @@ public class CSVParser {
         forCSV[18]=forCSV[18].replaceFirst("1/16",adjustedFreq.getFrequencies().get("tgFreq"));
         forCSV[19]=forCSV[19].replaceFirst("1/16",adjustedFreq.getFrequencies().get("ttFreq"));
 
+        /*This block substitutes 'abs' symbols from template for absolute values of dinucleotide
+         occurrence */
+
+        forCSV[4]=forCSV[4].replace("abs"  ,adjustedFreq.getResults().get("aa").toString());
+        forCSV[5]=forCSV[5].replace("abs"  ,adjustedFreq.getResults().get("ac").toString());
+        forCSV[6]=forCSV[6].replace("abs"  ,adjustedFreq.getResults().get("ag").toString());
+        forCSV[7]=forCSV[7].replace("abs"  ,adjustedFreq.getResults().get("at").toString());
+        forCSV[8]=forCSV[8].replace("abs"  ,adjustedFreq.getResults().get("ca").toString());
+        forCSV[9]=forCSV[9].replace("abs"  ,adjustedFreq.getResults().get("cc").toString());
+        forCSV[10]=forCSV[10].replace("abs",adjustedFreq.getResults().get("cg").toString());
+        forCSV[11]=forCSV[11].replace("abs",adjustedFreq.getResults().get("ct").toString());
+        forCSV[12]=forCSV[12].replace("abs",adjustedFreq.getResults().get("ga").toString());
+        forCSV[13]=forCSV[13].replace("abs",adjustedFreq.getResults().get("gc").toString());
+        forCSV[14]=forCSV[14].replace("abs",adjustedFreq.getResults().get("gg").toString());
+        forCSV[15]=forCSV[15].replace("abs",adjustedFreq.getResults().get("gt").toString());
+        forCSV[16]=forCSV[16].replace("abs",adjustedFreq.getResults().get("ta").toString());
+        forCSV[17]=forCSV[17].replace("abs",adjustedFreq.getResults().get("tc").toString());
+        forCSV[18]=forCSV[18].replace("abs",adjustedFreq.getResults().get("tg").toString());
+        forCSV[19]=forCSV[19].replace("abs",adjustedFreq.getResults().get("tt").toString());
+        forCSV[20]=forCSV[20].replace("abs",adjustedFreq.getResults().get("total").toString());
+
+
         /*The block substitutes ;; symbols in the pattern with number of occurrences of corresponding
         dinucleotides before SNP*/
 
