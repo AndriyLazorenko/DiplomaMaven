@@ -1,9 +1,7 @@
 package Controller.GenomeDinucleotideFreq;
 
 import java.io.FileReader;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * This class is responsible for processing the results into files or data storing classes.
