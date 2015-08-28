@@ -1,7 +1,7 @@
 package Controller;
 
 import Controller.DatabaseParsingBehaviour.ParsingDBBehaviour;
-import Controller.GenomeDinucleotideFreq.AllResultsContainer;
+import Controller.GenomeDinucleotideFreq.ResultsProcessor;
 import Properties.DatabaseBehaviourMap;
 import Properties.Results;
 import Properties.OrderedPrintList;
@@ -27,7 +27,7 @@ public class ResultsDB {
     private String variationAllele;
     private String fileName;
     private Results results;
-    private AllResultsContainer adjustedFreq;
+    private ResultsProcessor adjustedFreq;
 
     /**
      * Constructor accepts String of variation Allele, determines parsing behaviour of
@@ -37,7 +37,7 @@ public class ResultsDB {
      * @param adjustedFreq - file containing data on frequencies of occurrence of dinucleotides
      */
 
-    public ResultsDB(String s, AllResultsContainer adjustedFreq){
+    public ResultsDB(String s, ResultsProcessor adjustedFreq){
         this.parsingDBBehaviour = dbbm.getDatabaseBehaviour().get(s);
         this.variationAllele = s;
         this.adjustedFreq = adjustedFreq;

@@ -1,6 +1,6 @@
 package View.Runnable;
 
-import Controller.GenomeDinucleotideFreq.AllResultsContainer;
+import Controller.GenomeDinucleotideFreq.ResultsProcessor;
 import Controller.GenomeDinucleotideFreq.ProcessingDinucleotideFreq;
 import Controller.InputProcessing.FileInput;
 import Controller.InputProcessing.FolderInput;
@@ -21,7 +21,7 @@ public class MainDinucleotideFreqs {
 
     public static void main(String[] args) {
 
-        AllResultsContainer container = new AllResultsContainer();
+        ResultsProcessor container = new ResultsProcessor();
         boolean continues = true;
         while (continues) {
             //Variables

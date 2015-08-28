@@ -6,10 +6,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
- * This class contains  variables and methods needed to count and compute occurrences of
+ * This class contains variables and methods needed to count and compute occurrences of
  * dinucleotide phrases all over the analysed samples
  * @author andriylazorenko
  */
@@ -21,7 +20,6 @@ public class DinucleotideFrequencyCounter extends VariableContainer {
      */
 
     private FileReader fr;
-
 
     /**
      * Constructor for class. FileReader object must be passed
@@ -46,22 +44,6 @@ public class DinucleotideFrequencyCounter extends VariableContainer {
                 line=br.readLine();
             }
             fr.close();
-            total  = aaCounter+
-                     acCounter+
-                     agCounter+
-                     atCounter+
-                     caCounter+
-                     ccCounter+
-                     cgCounter+
-                     ctCounter+
-                     gaCounter+
-                     gcCounter+
-                     ggCounter+
-                     gtCounter+
-                     taCounter+
-                     tcCounter+
-                     tgCounter+
-                     ttCounter;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,22 +60,22 @@ public class DinucleotideFrequencyCounter extends VariableContainer {
 
         String inputLowercase = input.toLowerCase();
 
-        aaCounter += StringUtils.countOccurrencesOf(inputLowercase,aa);
-        acCounter += StringUtils.countOccurrencesOf(inputLowercase,ac);
-        agCounter += StringUtils.countOccurrencesOf(inputLowercase,ag);
-        atCounter += StringUtils.countOccurrencesOf(inputLowercase,at);
-        caCounter += StringUtils.countOccurrencesOf(inputLowercase,ca);
-        ccCounter += StringUtils.countOccurrencesOf(inputLowercase,cc);
-        cgCounter += StringUtils.countOccurrencesOf(inputLowercase,cg);
-        ctCounter += StringUtils.countOccurrencesOf(inputLowercase,ct);
-        gaCounter += StringUtils.countOccurrencesOf(inputLowercase,ga);
-        gcCounter += StringUtils.countOccurrencesOf(inputLowercase,gc);
-        ggCounter += StringUtils.countOccurrencesOf(inputLowercase,gg);
-        gtCounter += StringUtils.countOccurrencesOf(inputLowercase,gt);
-        taCounter += StringUtils.countOccurrencesOf(inputLowercase,ta);
-        tcCounter += StringUtils.countOccurrencesOf(inputLowercase,tc);
-        tgCounter += StringUtils.countOccurrencesOf(inputLowercase,tg);
-        ttCounter += StringUtils.countOccurrencesOf(inputLowercase,tt);
+        getContainer().put("aa", getContainer().get("aa") + StringUtils.countOccurrencesOf(inputLowercase,"aa"));
+        getContainer().put("ac", getContainer().get("ac") + StringUtils.countOccurrencesOf(inputLowercase,"ac"));
+        getContainer().put("ag", getContainer().get("ag") + StringUtils.countOccurrencesOf(inputLowercase,"ag"));
+        getContainer().put("at", getContainer().get("at") + StringUtils.countOccurrencesOf(inputLowercase,"at"));
+        getContainer().put("ca", getContainer().get("ca") + StringUtils.countOccurrencesOf(inputLowercase,"ca"));
+        getContainer().put("cc", getContainer().get("cc") + StringUtils.countOccurrencesOf(inputLowercase,"cc"));
+        getContainer().put("cg", getContainer().get("cg") + StringUtils.countOccurrencesOf(inputLowercase,"cg"));
+        getContainer().put("ct", getContainer().get("ct") + StringUtils.countOccurrencesOf(inputLowercase,"ct"));
+        getContainer().put("ga", getContainer().get("ga") + StringUtils.countOccurrencesOf(inputLowercase,"ga"));
+        getContainer().put("gc", getContainer().get("gc") + StringUtils.countOccurrencesOf(inputLowercase,"gc"));
+        getContainer().put("gg", getContainer().get("gg") + StringUtils.countOccurrencesOf(inputLowercase,"gg"));
+        getContainer().put("gt", getContainer().get("gt") + StringUtils.countOccurrencesOf(inputLowercase,"gt"));
+        getContainer().put("ta", getContainer().get("ta") + StringUtils.countOccurrencesOf(inputLowercase,"ta"));
+        getContainer().put("tc", getContainer().get("tc") + StringUtils.countOccurrencesOf(inputLowercase,"tc"));
+        getContainer().put("tg", getContainer().get("tg") + StringUtils.countOccurrencesOf(inputLowercase,"tg"));
+        getContainer().put("tt", getContainer().get("tt") + StringUtils.countOccurrencesOf(inputLowercase,"tt"));
 
     }
 
@@ -104,6 +86,7 @@ public class DinucleotideFrequencyCounter extends VariableContainer {
 
     public Map<String,Long> run(){
         process();
-        return formResults();
+        updateTotal(getContainer());
+        return getContainer();
     }
 }

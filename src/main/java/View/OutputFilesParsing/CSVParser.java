@@ -1,7 +1,7 @@
 package View.OutputFilesParsing;
 
 
-import Controller.GenomeDinucleotideFreq.AllResultsContainer;
+import Controller.GenomeDinucleotideFreq.ResultsProcessor;
 import Properties.Results;
 
 import java.io.*;
@@ -23,7 +23,7 @@ public class CSVParser {
 
     private String[] forCSV;
     private Results results;
-    private AllResultsContainer adjustedFreq;
+    private ResultsProcessor adjustedFreq;
 
     /**
      * Constructor of class. Receives Results object and produces forCSV array of Strings from
@@ -33,7 +33,7 @@ public class CSVParser {
      * @returns forCSV - array of Strings used by @toCSV method
      */
 
-    public CSVParser(Results res, AllResultsContainer adjustedFreq) {
+    public CSVParser(Results res, ResultsProcessor adjustedFreq) {
         FileReader fileReader;
         Set<String> helper = new LinkedHashSet<>();
         this.results = res;
