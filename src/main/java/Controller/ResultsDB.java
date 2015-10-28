@@ -2,6 +2,7 @@ package Controller;
 
 import Controller.DatabaseParsingBehaviour.ParsingDBBehaviour;
 import Controller.GenomeDinucleotideFreq.AllResultsContainer;
+import Controller.GenomeDinucleotideFreq.ResultsProcessor;
 import Model.DatabaseBehaviourMap;
 import DAO.Results;
 import DAO.OrderedPrintList;
@@ -37,7 +38,7 @@ public class ResultsDB {
      * @param adjustedFreq - file containing data on frequencies of occurrence of dinucleotides
      */
 
-    public ResultsDB(String s, AllResultsContainer adjustedFreq){
+    public ResultsDB(String s, ResultsProcessor adjustedFreq){
         this.parsingDBBehaviour = dbbm.getDatabaseBehaviour().get(s);
         this.variationAllele = s;
         this.adjustedFreq = adjustedFreq;
