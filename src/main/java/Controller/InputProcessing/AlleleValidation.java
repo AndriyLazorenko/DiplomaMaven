@@ -4,95 +4,82 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Class handles allele validation and standardizes the allele name
+ * @author andriylazorenko
+ */
+
 public class AlleleValidation {
-    private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    private String variationAllele;
-    private boolean variationAlleleIsCorrect;
+
+    /**
+     * Validation method (needs console input)
+     * @returns String value of standardized allele name
+     * @throws IOException
+     */
 
     public String ask () throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String variationAllele;
+        boolean variationAlleleIsCorrect;
         do {
-            setVariationAlleleIsCorrect(true);
+            variationAlleleIsCorrect=true;
             System.out.println("Insert Variation Allele");
-            setVariationAllele(getBr().readLine());
-            if (getVariationAllele().equals("A")|| getVariationAllele().equals("a")){
-                setVariationAllele("A");
+            variationAllele=br.readLine();
+            if (variationAllele.equals("A")|| variationAllele.equals("a")){
+                variationAllele="A";
             }
-            else if (getVariationAllele().equals("B")|| getVariationAllele().equals("b")){
-                setVariationAllele("B");
+            else if (variationAllele.equals("B")|| variationAllele.equals("b")){
+                variationAllele="B";
             }
-            else if (getVariationAllele().equals("C")|| getVariationAllele().equals("c")){
-                setVariationAllele("C");
+            else if (variationAllele.equals("C")|| variationAllele.equals("c")){
+                variationAllele="C";
             }
-            else if (getVariationAllele().equals("D")|| getVariationAllele().equals("d")){
-                setVariationAllele("D");
+            else if (variationAllele.equals("D")|| variationAllele.equals("d")){
+                variationAllele="D";
             }
-            else if (getVariationAllele().equals("G")|| getVariationAllele().equals("g")){
-                setVariationAllele("G");
+            else if (variationAllele.equals("G")|| variationAllele.equals("g")){
+                variationAllele="G";
             }
-            else if (getVariationAllele().equals("Germline")|| getVariationAllele().equals("germline")){
-                setVariationAllele("Germline");
+            else if (variationAllele.equals("Germline")|| variationAllele.equals("germline")){
+                variationAllele="Germline";
             }
-            else if (getVariationAllele().equals("H")|| getVariationAllele().equals("h")){
-                setVariationAllele("H");
+            else if (variationAllele.equals("H")|| variationAllele.equals("h")){
+                variationAllele="H";
             }
-            else if (getVariationAllele().equals("K")|| getVariationAllele().equals("k")){
-                setVariationAllele("K");
+            else if (variationAllele.equals("K")|| variationAllele.equals("k")){
+                variationAllele="K";
             }
-            else if (getVariationAllele().equals("M")|| getVariationAllele().equals("m")){
-                setVariationAllele("M");
+            else if (variationAllele.equals("M")|| variationAllele.equals("m")){
+                variationAllele="M";
             }
-            else if (getVariationAllele().equals("N")|| getVariationAllele().equals("n")){
-                setVariationAllele("N");
+            else if (variationAllele.equals("N")|| variationAllele.equals("n")){
+                variationAllele="N";
             }
-            else if (getVariationAllele().equals("R")|| getVariationAllele().equals("r")){
-                setVariationAllele("R");
+            else if (variationAllele.equals("R")|| variationAllele.equals("r")){
+                variationAllele="R";
             }
-            else if (getVariationAllele().equals("S")|| getVariationAllele().equals("s")){
-                setVariationAllele("S");
+            else if (variationAllele.equals("S")|| variationAllele.equals("s")){
+                variationAllele="S";
             }
-            else if (getVariationAllele().equals("Somatic")|| getVariationAllele().equals("somatic")){
-                setVariationAllele("Somatic");
+            else if (variationAllele.equals("Somatic")|| variationAllele.equals("somatic")){
+                variationAllele="Somatic";
             }
-            else if (getVariationAllele().equals("T")|| getVariationAllele().equals("t")){
-                setVariationAllele("T");
+            else if (variationAllele.equals("T")|| variationAllele.equals("t")){
+                variationAllele="T";
             }
-            else if (getVariationAllele().equals("V")|| getVariationAllele().equals("v")){
-                setVariationAllele("V");
+            else if (variationAllele.equals("V")|| variationAllele.equals("v")){
+                variationAllele="V";
             }
-            else if (getVariationAllele().equals("W")|| getVariationAllele().equals("w")){
-                setVariationAllele("W");
+            else if (variationAllele.equals("W")|| variationAllele.equals("w")){
+                variationAllele="W";
             }
-            else if (getVariationAllele().equals("Y")|| getVariationAllele().equals("y")){
-                setVariationAllele("Y");
+            else if (variationAllele.equals("Y")|| variationAllele.equals("y")){
+                variationAllele="Y";
             }
             else {
-                setVariationAlleleIsCorrect(false);
+                variationAlleleIsCorrect=(false);
             }
-        } while (isVariationAlleleIsCorrect() == false);
-        return getVariationAllele();
-    }
-
-    public BufferedReader getBr() {
-        return br;
-    }
-
-    public void setBr(BufferedReader br) {
-        this.br = br;
-    }
-
-    public String getVariationAllele() {
+        } while (variationAlleleIsCorrect == false);
         return variationAllele;
-    }
-
-    public void setVariationAllele(String variationAllele) {
-        this.variationAllele = variationAllele;
-    }
-
-    public boolean isVariationAlleleIsCorrect() {
-        return variationAlleleIsCorrect;
-    }
-
-    public void setVariationAlleleIsCorrect(boolean variationAlleleIsCorrect) {
-        this.variationAlleleIsCorrect = variationAlleleIsCorrect;
     }
 }

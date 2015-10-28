@@ -7,12 +7,12 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * Handles all results on dinucleotide occurrence in analysed areas of genome.
- * Extends abstract class VariableContainer
+ * Handles all results on dinucleotide occurrence in analysed areas of genome, including frequencies, which it computes.
+ * Extends abstract <class>VariableContainer</class>
  * @author andriylazorenko
  */
 
-public class AllResultsContainer extends VariableContainer {
+public class ResultsProcessor extends VariableContainer {
 
     /**
      * Variables
@@ -26,11 +26,12 @@ public class AllResultsContainer extends VariableContainer {
      * Getters
      */
 
-    public Map<String, String> getFrequencies() {
-        return frequencies;
-    }
     public Map<String, Long> getResults() {
         return results;
+    }
+
+    public Map<String, String> getFrequencies() {
+        return frequencies;
     }
 
     /**
@@ -38,7 +39,7 @@ public class AllResultsContainer extends VariableContainer {
      */
 
     public void printContainerToConsole(){
-        results = formResults();
+        results = getContainer();
         for (String s :results.keySet()) {
             System.out.println(s+" = "+results.get(s).toString());
         }
@@ -49,7 +50,7 @@ public class AllResultsContainer extends VariableContainer {
      */
 
     public void writeContainerToFile(){
-        results = formResults();
+        results = getContainer();
         File output = new File(outputPath);
         try {
             FileWriter fw = new FileWriter(output);
@@ -129,4 +130,5 @@ public class AllResultsContainer extends VariableContainer {
         String forRet = formatter.format(d);
         return forRet;
     }
+
 }

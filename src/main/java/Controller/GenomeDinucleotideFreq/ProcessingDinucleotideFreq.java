@@ -1,7 +1,6 @@
 package Controller.GenomeDinucleotideFreq;
 
 import java.io.FileReader;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,9 +15,8 @@ public class ProcessingDinucleotideFreq {
      * Variables
      */
 
-    private Map<String,Long> results = new HashMap<>();
+    private Map <String,Long> results;
     private String filename;
-    private FileReader input;
     private DinucleotideFrequencyCounter counter;
 
     /**
@@ -30,7 +28,6 @@ public class ProcessingDinucleotideFreq {
 
     public ProcessingDinucleotideFreq(String filename, FileReader input) {
         this.filename = filename;
-        this.input = input;
         this.counter = new DinucleotideFrequencyCounter(input);
         this.results = this.counter.run();
     }
@@ -46,29 +43,30 @@ public class ProcessingDinucleotideFreq {
     }
 
     /**
-     * Adds data to a container designed to hold data from various files.
-     * @param container - Container class object to add results to
+     * Adds data to a container class designed to hold and process data from various files.
+     * @param vc -  <class>VariableContainer</class> object to add results to
      * @parameter results - Map of results to add to container
      */
 
-    public void addToDataContainer(AllResultsContainer container){
+    public void addToDataContainer(VariableContainer vc){
 
-        container.aaCounter +=Integer.parseInt(results.get("aa").toString());
-        container.acCounter +=Integer.parseInt(results.get("ac").toString());
-        container.agCounter +=Integer.parseInt(results.get("ag").toString());
-        container.atCounter +=Integer.parseInt(results.get("at").toString());
-        container.caCounter +=Integer.parseInt(results.get("ca").toString());
-        container.ccCounter +=Integer.parseInt(results.get("cc").toString());
-        container.cgCounter +=Integer.parseInt(results.get("cg").toString());
-        container.ctCounter +=Integer.parseInt(results.get("ct").toString());
-        container.gaCounter +=Integer.parseInt(results.get("ga").toString());
-        container.gcCounter +=Integer.parseInt(results.get("gc").toString());
-        container.ggCounter +=Integer.parseInt(results.get("gg").toString());
-        container.gtCounter +=Integer.parseInt(results.get("gt").toString());
-        container.taCounter +=Integer.parseInt(results.get("ta").toString());
-        container.tcCounter +=Integer.parseInt(results.get("tc").toString());
-        container.tgCounter +=Integer.parseInt(results.get("tg").toString());
-        container.ttCounter +=Integer.parseInt(results.get("tt").toString());
+        vc.getContainer().put("aa", vc.getContainer().get("aa") + results.get("aa"));
+        vc.getContainer().put("ac", vc.getContainer().get("ac") + results.get("ac"));
+        vc.getContainer().put("ag", vc.getContainer().get("ag") + results.get("ag"));
+        vc.getContainer().put("at", vc.getContainer().get("at") + results.get("at"));
+        vc.getContainer().put("ca", vc.getContainer().get("ca") + results.get("ca"));
+        vc.getContainer().put("cc", vc.getContainer().get("cc") + results.get("cc"));
+        vc.getContainer().put("cg", vc.getContainer().get("cg") + results.get("cg"));
+        vc.getContainer().put("ct", vc.getContainer().get("ct") + results.get("ct"));
+        vc.getContainer().put("ga", vc.getContainer().get("ga") + results.get("ga"));
+        vc.getContainer().put("gc", vc.getContainer().get("gc") + results.get("gc"));
+        vc.getContainer().put("gg", vc.getContainer().get("gg") + results.get("gg"));
+        vc.getContainer().put("gt", vc.getContainer().get("gt") + results.get("gt"));
+        vc.getContainer().put("ta", vc.getContainer().get("ta") + results.get("ta"));
+        vc.getContainer().put("tc", vc.getContainer().get("tc") + results.get("tc"));
+        vc.getContainer().put("tg", vc.getContainer().get("tg") + results.get("tg"));
+        vc.getContainer().put("tt", vc.getContainer().get("tt") + results.get("tt"));
+        vc.getContainer().put("total", vc.getContainer().get("total") + results.get("total"));
 
     }
 }

@@ -1,7 +1,7 @@
 package Controller;
 
 
-import Controller.GenomeDinucleotideFreq.AllResultsContainer;
+import Controller.GenomeDinucleotideFreq.ResultsProcessor;
 import Controller.InputProcessing.FileInput;
 import Controller.InputProcessing.FolderInput;
 import Controller.InputProcessing.AlleleValidation;
@@ -42,7 +42,7 @@ public class Controller {
     private int counterOfFilesProcessed=0;
     private String variationAllele;
     protected BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    private AllResultsContainer adjustedFreq = new AllResultsContainer();
+    private ResultsProcessor adjustedFreq = new ResultsProcessor();
 
     /**
      * Main method. Does everything
@@ -124,7 +124,7 @@ public class Controller {
         protected String allele;
         protected Allele chosenAllele;
         protected ResultsDB chosenResultsDB;
-        protected AllResultsContainer adjustedFreq;
+        protected ResultsProcessor adjustedFreq;
 
         /**
          * Getters and Setters
@@ -149,7 +149,7 @@ public class Controller {
         /**
          * Method for creating chosenAllele object and chosenResults DB object
          * @parameter allele - String value is required for correct work of method
-         * @parameter adjustedFreq - AllResultsContainer object is required for correct work of method
+         * @parameter adjustedFreq - ResultsProcessor object is required for correct work of method
          */
 
         protected void setVariables(){
@@ -184,14 +184,14 @@ public class Controller {
         private FolderInput folder;
 
         /**
-         * Constructor accepts String with variation allele, FolderInput object and AllResultsContainer
+         * Constructor accepts String with variation allele, FolderInput object and ResultsProcessor
          * object containing info on frequency of dinucleotides' statistical appearance.
          * @param s - String with variation allele info
          * @param f - FolderInput object
-         * @param adjustedFreq - AllResultsContainer object with statistical info
+         * @param adjustedFreq - ResultsProcessor object with statistical info
          */
 
-        public FolderProcessing (String s, FolderInput f, AllResultsContainer adjustedFreq) {
+        public FolderProcessing (String s, FolderInput f, ResultsProcessor adjustedFreq) {
             this.allele = s;
             this.folder = f;
             this.adjustedFreq= adjustedFreq;
@@ -262,13 +262,13 @@ public class Controller {
     private class FileProcessing extends Processing{
 
         /**
-         * Constructor accepts String with variation allele info as well as AllResultsContainer object
+         * Constructor accepts String with variation allele info as well as ResultsProcessor object
          * with info on statistical frequency of occurrence of dinucleotides
          * @param s
          * @param adjustedFreq
          */
 
-        public FileProcessing (String s, AllResultsContainer adjustedFreq) {
+        public FileProcessing (String s, ResultsProcessor adjustedFreq) {
             this.allele = s;
             this.adjustedFreq = adjustedFreq;
         }
