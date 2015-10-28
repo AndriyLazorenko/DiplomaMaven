@@ -1,6 +1,6 @@
 package Controller.SearchMethodBehaviour;
 
-import Properties.Results;
+import DAO.Results;
 
 /**
  * Created by Master on 04-May-15.

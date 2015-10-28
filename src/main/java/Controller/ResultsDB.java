@@ -2,9 +2,9 @@ package Controller;
 
 import Controller.DatabaseParsingBehaviour.ParsingDBBehaviour;
 import Controller.GenomeDinucleotideFreq.AllResultsContainer;
-import Properties.DatabaseBehaviourMap;
-import Properties.Results;
-import Properties.OrderedPrintList;
+import Model.DatabaseBehaviourMap;
+import DAO.Results;
+import DAO.OrderedPrintList;
 import View.OutputFilesParsing.CSVParser;
 
 import java.io.*;

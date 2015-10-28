@@ -5,7 +5,7 @@ import Controller.GenomeDinucleotideFreq.AllResultsContainer;
 import Controller.InputProcessing.FileInput;
 import Controller.InputProcessing.FolderInput;
 import Controller.InputProcessing.AlleleValidation;
-import Properties.Results;
+import DAO.Results;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +14,8 @@ import java.util.Map;
 
 /**
  * A giant super-duper-class, UBER - controller, who knows just about everyone and pulls all the
- * stuff together. A clear anti-pattern applied here. Scheduled for massive refactoring and decoupling
+ * stuff together. A clear anti-pattern applied here (GOD-object). Scheduled for massive refactoring and
+ * decoupling.
  * Functions as a console - user interface, controller logic to access all other classes.
  * Contains internal classes: abstract class Processing, FolderProcessing and FileProcessing
  * @author andriylazorenko

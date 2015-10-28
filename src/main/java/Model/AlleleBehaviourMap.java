@@ -1,10 +1,10 @@
-package Properties;
-
-import java.util.HashMap;
-import java.util.Map;
+package Model;
 
 import Controller.SearchMethodBehaviour.Both;
 import Controller.SearchMethodBehaviour.SearchMethod;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Master on 12-May-15.

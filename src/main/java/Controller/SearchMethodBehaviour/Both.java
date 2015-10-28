@@ -3,7 +3,7 @@ package Controller.SearchMethodBehaviour;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.*;
-import Properties.Results;
+import DAO.Results;
 
 /**
  * The composite class Both contains all variables necessary for computations as well as

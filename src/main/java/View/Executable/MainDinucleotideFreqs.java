@@ -1,4 +1,4 @@
-package View.Runnable;
+package View.Executable;
 
 import Controller.GenomeDinucleotideFreq.AllResultsContainer;
 import Controller.GenomeDinucleotideFreq.ProcessingDinucleotideFreq;

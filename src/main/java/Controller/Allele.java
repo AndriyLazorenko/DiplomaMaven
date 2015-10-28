@@ -1,10 +1,10 @@
 package Controller;
 
 import Controller.SearchMethodBehaviour.SearchMethod;
-import Properties.AlleleBehaviourMap;
-import Properties.AlleleNamesMap;
-import Properties.Results;
-import Properties.OrderedPrintList;
+import Model.AlleleBehaviourMap;
+import Model.AlleleNamesMap;
+import DAO.Results;
+import DAO.OrderedPrintList;
 import java.io.*;
 import java.util.Properties;
 

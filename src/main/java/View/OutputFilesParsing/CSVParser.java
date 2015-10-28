@@ -2,7 +2,7 @@ package View.OutputFilesParsing;
 
 
 import Controller.GenomeDinucleotideFreq.AllResultsContainer;
-import Properties.Results;
+import DAO.Results;
 
 import java.io.*;
 import java.util.Iterator;

@@ -1,7 +1,6 @@
 package Tests;
 
 
-import Properties.AlleleNamesMap;
 import org.springframework.util.StringUtils;
 
 /**

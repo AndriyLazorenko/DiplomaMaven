@@ -1,4 +1,4 @@
-package Properties;
+package Model;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -6,25 +6,25 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Created by Lazorenko on 26.05.2015.
+ * Created by Master on 12-May-15.
  */
-public class AlleleReverseNamesMap {
+public class AlleleNamesMap {
 
     Properties properties = new Properties();
 
-    public AlleleReverseNamesMap() {
+    public AlleleNamesMap() {
         try {
-            FileReader fr = new FileReader("src/main/resources/ConfigFiles/Properties/AlleleReverseNames.txt");
+            FileReader fr = new FileReader("src/main/resources/ConfigFiles/Model/AlleleNames.txt");
             properties.load(fr);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public Properties getAlleleNames() {
         return properties;
     }
 }
-

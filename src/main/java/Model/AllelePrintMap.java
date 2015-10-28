@@ -1,4 +1,4 @@
-package Properties;
+package Model;
 
 import java.io.File;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class AllelePrintMap {
     private Map<String, File> allelePrint = new HashMap<>();
-    private final File propertyBoth = new File("src/main/resources/ConfigFiles/Properties/OrderForPrintBoth.txt");
+    private final File propertyBoth = new File("src/main/resources/ConfigFiles/Model/OrderForPrintBoth.txt");
 
     public AllelePrintMap() {
         allelePrint.put("R", propertyBoth);

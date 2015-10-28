@@ -1,4 +1,7 @@
-package Properties;
+package DAO;
+
+import Model.AllelePrintMap;
+import Model.AlleleReverseNamesMap;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,8 +11,11 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * Created by Lazorenko on 26.05.2015.
+ * Contains logic for ordering print according to allele name taken either from <Object>AllelePrintMap
+ * </Object> or <Object>AlleleReverseNamesMap</Object>
+ * @author andriylazorenko
  */
+
 public class OrderedPrintList {
     private Set<String> names = new LinkedHashSet<>();
     AllelePrintMap apm = new AllelePrintMap();

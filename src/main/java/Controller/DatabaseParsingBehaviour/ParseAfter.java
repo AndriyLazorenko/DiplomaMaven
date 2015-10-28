@@ -1,7 +1,7 @@
 package Controller.DatabaseParsingBehaviour;
 
 import Controller.SearchMethodBehaviour.Both;
-import Properties.Results;
+import DAO.Results;
 
 /**
  * Created by Master on 05-May-15.

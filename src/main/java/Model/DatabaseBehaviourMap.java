@@ -1,4 +1,4 @@
-package Properties;
+package Model;
 
 import Controller.DatabaseParsingBehaviour.ParseBoth;
 import Controller.DatabaseParsingBehaviour.ParsingDBBehaviour;

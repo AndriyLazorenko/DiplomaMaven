@@ -1,12 +1,16 @@
-package Properties;
+package DAO;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+
 /**
- * Created by Lazorenko on 25.05.2015.
+ * Contains logic of accessing to ResultsFineWording file containing map of names and applying them
+ * as well as providing access to variationAllele
+ * @author andriylazorenko
  */
+
 public class Results {
     private Properties properties = new Properties();
     private String variationAllele = "";
@@ -28,7 +32,7 @@ public class Results {
         FileReader fr;
         Properties forRet = new Properties();
         try {
-            fr = new FileReader("src/main/resources/ConfigFiles/Properties/ResultsFineWording.txt");
+            fr = new FileReader("src/main/resources/ConfigFiles/Model/ResultsFineWording.txt");
             Properties phrases = new Properties();
             phrases.load(fr);
             for(Object o: properties.keySet()){
