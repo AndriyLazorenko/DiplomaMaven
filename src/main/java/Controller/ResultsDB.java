@@ -1,7 +1,6 @@
 package Controller;
 
 import Controller.DatabaseParsingBehaviour.ParsingDBBehaviour;
-import Controller.GenomeDinucleotideFreq.AllResultsContainer;
 import Controller.GenomeDinucleotideFreq.ResultsProcessor;
 import Model.DatabaseBehaviourMap;
 import DAO.Results;
@@ -28,7 +27,7 @@ public class ResultsDB {
     private String variationAllele;
     private String fileName;
     private Results results;
-    private AllResultsContainer adjustedFreq;
+    private ResultsProcessor adjustedFreq;
 
     /**
      * Constructor accepts String of variation Allele, determines parsing behaviour of
