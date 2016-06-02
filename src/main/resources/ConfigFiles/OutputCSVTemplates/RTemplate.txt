@@ -1,4 +1,4 @@
-Dinucleotides;Mathematical expectation of the frequency of occurrence of each dinucleotide;Absolute value of dinucleotide occurrence;Mathematical expectation of the mean dinucleotide number after SNP;Mathematical expectation of the mean dinucleotide number before SNP;Number of dinucleotides after SNP;Frequency of occurrence of given dinucleotide after SNP;Number of dinucleotides before SNP;Frequency of occurrence of given dinucleotide after SNP
+Dinucleotides;Mathematical expectation of the frequency of occurrence of each dinucleotide;Absolute value of dinucleotide occurrence;Mathematical expectation of the mean dinucleotide number after SNP;Mathematical expectation of the mean dinucleotide number before SNP;Number of dinucleotides after SNP;Frequency of occurrence of given dinucleotide after SNP;Number of dinucleotides before SNP;Frequency of occurrence of given dinucleotide before SNP
 AA;1/16;abs;=$G$20*C4;=$I$20*C4;;=G4/$G$20;;=I4/$I$20
 AC;1/16;abs;=$G$20*C5;=$I$20*C5;;=G5/$G$20;;=I5/$I$20
 AG;1/16;abs;=$G$20*C6;=$I$20*C6;;=G6/$G$20;;=I6/$I$20
