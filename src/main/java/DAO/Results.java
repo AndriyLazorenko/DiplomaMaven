@@ -32,7 +32,7 @@ public class Results {
         FileReader fr;
         Properties forRet = new Properties();
         try {
-            fr = new FileReader("src/main/resources/ConfigFiles/Model/ResultsFineWording.txt");
+            fr = new FileReader("src/main/resources/ConfigFiles/Properties/ResultsFineWording.txt");
             Properties phrases = new Properties();
             phrases.load(fr);
             for(Object o: properties.keySet()){

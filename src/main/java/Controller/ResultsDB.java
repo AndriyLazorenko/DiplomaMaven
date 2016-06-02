@@ -69,7 +69,7 @@ public class ResultsDB {
      * @throws IOException
      */
 
-    public void toFile(String fileName) throws IOException {
+    public void toFile(String fileName, boolean forR) throws IOException {
 
         setFileName(fileName);
         if (getFileName().contains("\\")) {
@@ -82,7 +82,7 @@ public class ResultsDB {
         }
         File file = new File(getFileName());
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
-        CSVParser csv = new CSVParser(results,adjustedFreq);
+        CSVParser csv = new CSVParser(results,adjustedFreq,forR);
         fw.write(csv.toCSV());
         fw.flush();
         fw.close();

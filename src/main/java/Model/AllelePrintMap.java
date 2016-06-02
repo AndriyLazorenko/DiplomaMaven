@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class AllelePrintMap {
     private Map<String, File> allelePrint = new HashMap<>();
-    private final File propertyBoth = new File("src/main/resources/ConfigFiles/Model/OrderForPrintBoth.txt");
+    private final File propertyBoth = new File("src/main/resources/ConfigFiles/Properties/OrderForPrintBoth.txt");
 
     public AllelePrintMap() {
         allelePrint.put("R", propertyBoth);

@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 /**
  * A giant super-duper-class, UBER - controller, who knows just about everyone and pulls all the
  * stuff together. A clear anti-pattern applied here (GOD-object). Scheduled for massive refactoring and
@@ -237,9 +240,19 @@ public class Controller {
             System.out.println("Do you want to write database to file? Y/N");
             String choiceWrite = br.readLine();
             if (choiceWrite.equals("Y") || choiceWrite.equals("y")) {
+
+                //Ask for csv file format: Excel or R
+
+                System.out.println("Do you want to work with results in Excel or in R? Y (for R)/N (for Excel)");
+                String choiceR = br.readLine();
+                boolean forR = FALSE;
+                if (choiceR.equals("Y") || choiceR.equals("y")) {
+                    forR = TRUE;
+                }
+
                 getChosenResultsDB().parsingDBBehaviour.compute();
                 getChosenResultsDB().setResults(getChosenResultsDB().parsingDBBehaviour.creatingResults(variationAllele));
-                getChosenResultsDB().toFile(folderLocation + "/" + "smth.txt");
+                getChosenResultsDB().toFile(folderLocation + "/" + "smth.txt",forR);
                 getChosenResultsDB().clearResults();
             }
 
@@ -323,9 +336,19 @@ public class Controller {
                     System.out.println("Do you want to write database to file? Y/N");
                     String choiceWrite = br.readLine();
                     if (choiceWrite.equals("Y") || choiceWrite.equals("y")) {
+
+                        //Ask for csv file format: Excel or R
+
+                        System.out.println("Do you want to work with results in Excel or in R? Y (for R)/N (for Excel)");
+                        String choiceR = br.readLine();
+                        boolean forR = FALSE;
+                        if (choiceR.equals("Y") || choiceR.equals("y")) {
+                            forR = TRUE;
+                        }
+
                         getChosenResultsDB().parsingDBBehaviour.compute();
                         getChosenResultsDB().setResults(getChosenResultsDB().parsingDBBehaviour.creatingResults(variationAllele));
-                        getChosenResultsDB().toFile(oldFileName);
+                        getChosenResultsDB().toFile(oldFileName,forR);
                         getChosenResultsDB().clearResults();
                     }
 
