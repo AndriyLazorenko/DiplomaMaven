@@ -308,7 +308,9 @@ public class Controller {
 
                 //Adding to database upon choice
 
-                System.out.println("Do you want to add these results to overall "+getChosenAllele().getVariationAllele()+"-allele results database? Y/N");
+                System.out.println("Do you want to add these results to overall "
+                        +getChosenAllele().getVariationAllele()+"-allele results database? Y/N");
+                System.out.println("P.S.: If no results are in database, it won't print into .csv");
                 String choice = br.readLine();
                 if (choice.equals("Y") || choice.equals("y")) {
                     getChosenResultsDB().parsingDBBehaviour.addToDB(results);
@@ -345,7 +347,6 @@ public class Controller {
                         if (choiceR.equals("Y") || choiceR.equals("y")) {
                             forR = TRUE;
                         }
-
                         getChosenResultsDB().parsingDBBehaviour.compute();
                         getChosenResultsDB().setResults(getChosenResultsDB().parsingDBBehaviour.creatingResults(variationAllele));
                         getChosenResultsDB().toFile(oldFileName,forR);
